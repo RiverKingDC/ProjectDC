@@ -1,0 +1,7 @@
+{
+    "weapons": {
+        "Hero Hercules StardardMelee": {
+            "parent": "_StandardMeleeWeapon"
+        }
+    }
+}

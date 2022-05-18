@@ -1,0 +1,72 @@
+{
+    "effects": {
+        "Hero Hercules DoublePunch AOE": {
+            "areaSearch": {
+                "debugDraw": false,
+                "areaSearchType": {
+                    "rectangle": {
+                        "width": 2,
+                        "length": 4.5
+                    }
+                },
+                "filter": {
+                    "player": 2,
+                    "ally": 2
+                },
+                "effect": "Hero Hercules DoublePunch Damage",
+                "offset": {
+                    "forward": 2,
+                    "up": 0.5
+                }
+            }
+        },
+        "Hero Hercules DoublePunch Damage": {
+            "damage": {
+                "damageAmount": 8
+            }
+        },
+        "Hero Hercules GroundSmash AOE": {
+            "areaSearch": {
+                "debugDraw": false,
+                "areaSearchType": {
+                    "circle": {
+                        "radius": 3.5
+                    }
+                },
+                "filter": {
+                    "player": 2,
+                    "ally": 2
+                },
+                "effect": "Hero Hercules GroundSmash Damage"
+            }
+        },
+        "Hero Hercules GroundSmash Damage": {
+            "damage": {
+                "damageAmount": 10
+            }
+        },
+        "Hero Hercules Uppercut AOE": {
+            "areaSearch": {
+                "debugDraw": false,
+                "areaSearchType": {
+                    "circle": {
+                        "radius": 1
+                    }
+                },
+                "filter": {
+                    "player": 2,
+                    "ally": 2
+                },
+                "effect": "Hero Hercules Uppercut Damage",
+                "offset": {
+                    "forward": 0.5
+                }
+            }
+        },
+        "Hero Hercules Uppercut Damage": {
+            "damage": {
+                "damageAmount": 5
+            }
+        }
+    }
+}

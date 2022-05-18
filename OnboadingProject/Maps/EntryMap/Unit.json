@@ -1,0 +1,41 @@
+{
+    "units": {
+        "Hero Hercules": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "selectionPriority": 2
+                },
+                "health": {
+                    "maxHealth": 91,
+                    "regeneration": 2,
+                    "regenerationDelay": 5
+                },
+                "mana": {
+                    "maxMana": 91,
+                    "startMana": 91,
+                    "regeneration": 2
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Hero Hercules StardardMelee"
+                ],
+                "abilityList": [
+                    "Hero Hercules DoublePunch",
+                    "Hero Hercules GroundSmash",
+                    "Hero Hercules Uppercut"
+                ]
+            },
+            "healthBar": {
+                "type": 8,
+                "showWhenFull": true
+            },
+            "dependentBehaviors": [
+                "Hero Damage Buff",
+                "Hero Mana Buff",
+                "Hero Health Buff"
+            ]
+        }
+    }
+}

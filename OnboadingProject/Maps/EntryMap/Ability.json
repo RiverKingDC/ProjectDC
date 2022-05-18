@@ -1,0 +1,49 @@
+{
+    "abilities": {
+        "Hero Hercules DoublePunch": {
+            "effect": "Hero Hercules DoublePunch AOE",
+            "stats": {
+                "prepTime": 0.65,
+                "finishTime": 1,
+                "period": 1
+            },
+            "cost": {
+                "mana": 30
+            },
+            "targetFilter": {
+                "player": 2,
+                "ally": 2
+            }
+        },
+        "Hero Hercules GroundSmash": {
+            "effect": "Hero Hercules GroundSmash AOE",
+            "stats": {
+                "prepTime": 0.75,
+                "finishTime": 1,
+                "period": 1
+            },
+            "cost": {
+                "mana": 60
+            },
+            "targetFilter": {
+                "player": 2,
+                "ally": 2
+            }
+        },
+        "Hero Hercules Uppercut": {
+            "effect": "Hero Hercules Uppercut AOE",
+            "stats": {
+                "prepTime": 0.25,
+                "finishTime": 1,
+                "period": 1
+            },
+            "cost": {
+                "mana": 15
+            },
+            "targetFilter": {
+                "player": 2,
+                "ally": 2
+            }
+        }
+    }
+}

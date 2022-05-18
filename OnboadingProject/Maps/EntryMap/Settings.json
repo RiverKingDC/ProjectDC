@@ -1,0 +1,33 @@
+{
+    "settings": {
+        "registryDependencies": [
+            {
+                "identifier": "core",
+                "version": "^1.0.0"
+            }
+        ]
+    },
+    "triggerSettings": {
+        "usedUnits": [
+            "Hero Hercules"
+        ],
+        "usedBehaviors": [
+            "Hero Damage Buff",
+            "Hero Mana Buff",
+            "Hero Health Buff"
+        ],
+        "usedSpriteAssets": [
+            "spell_consecrate",
+            "spell_walloffire",
+            "spell_judgement",
+            "hero_hercules",
+            "pocketquest_icon_rune_background",
+            "cartoon_icon_mergewar_panel5_brown",
+            "icon_att_health",
+            "talent_mana_regen",
+            "icon_sword",
+            "cartoon_icon_mergewar_plus4",
+            "golden_pass_overview"
+        ]
+    }
+}

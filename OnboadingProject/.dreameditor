@@ -1,0 +1,8 @@
+{
+    "projectInfo": {
+        "type": 0,
+        "version": "0.0.1",
+        "projectName": "OnboadingProject",
+        "entryMap": "Maps/EntryMap"
+    }
+}

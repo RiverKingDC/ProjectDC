@@ -1,0 +1,293 @@
+local json = require("json")
+local core = require("core")
+
+--  variables
+local hero_Hercules = "Hero Hercules"
+local hero_unit = nil
+local unit = {} 
+local group = DCEI.FindUnitsByTeamId(-1)
+local goldvalue = 100
+local healthlvl = 0
+local manalvl = 0
+local attacklvl = 0
+--UI
+local root = DCEI.GetUiRootFrame()
+--UI Ability Buttons
+local button_Ability1 = DCEI.CreateButtonFrame(root)
+local button_Ability2 = DCEI.CreateButtonFrame(root)
+local button_Ability3 = DCEI.CreateButtonFrame(root)
+--Upgrade Menu
+local frame_upgrades = DCEI.CreateFrame(root)
+local frame_hero_image = DCEI.CreateFrame(frame_upgrades)
+
+local frame_health_background = DCEI.CreateButtonFrame(frame_upgrades)
+local frame_health_image = DCEI.CreateFrame(frame_health_background)
+local frame_health_plus = DCEI.CreateFrame(frame_health_background)
+local frame_healthbar_background = DCEI.NewFrame(frame_upgrades)
+local frame_healthbar_fill = DCEI.NewFrame(frame_upgrades)
+
+local frame_mana_background = DCEI.CreateButtonFrame(frame_upgrades)
+local frame_mana_image = DCEI.CreateFrame(frame_mana_background)
+local frame_mana_plus = DCEI.CreateFrame(frame_mana_background)
+
+local frame_attack_background = DCEI.CreateButtonFrame(frame_upgrades)
+local frame_attack_image = DCEI.CreateFrame(frame_attack_background)
+local frame_attack_plus = DCEI.CreateFrame(frame_attack_background)
+
+local frame_gold_image = DCEI.CreateFrame(frame_upgrades)
+local frame_gold_value = DCEI.NewText(frame_upgrades)
+
+local frame_start_button = DCEI.CreateButtonFrame(frame_upgrades)
+local frame_start_text = DCEI.NewText(frame_start_button)
+
+--UI Classes
+ui_element = {}
+ui_element.__index = ui_element
+ui_element_image = {}
+ui_element_image.__index = ui_element_image
+setmetatable(ui_element_image, ui_element)
+
+
+function ui_element:SetUp()
+    DCEI.SetFrameMinSize(self.element, self.size,self.size)
+    DCEI.SetFrameHorizontalOffsetInParent(self.element, self.hoffset)
+    DCEI.SetFrameVerticalOffsetInParent(self.element, self.voffset)
+end
+
+function ui_element.new(element, size, hoffset, voffset)
+    local instance = setmetatable({}, ui_element)
+    instance.element = element
+    instance.image = image
+    instance.size = size
+    instance.hoffset = hoffset
+    instance.voffset = voffset
+    return instance
+end
+
+function ui_element_image:SetUp()
+    if self.istext == true then
+        DCEI.SetTextFrameText(self.element, self.text)
+        DCEI.SetTextFrameFontSize(self.element, self.sizeX)
+    else
+        DCEI.SetBackgroundImage(self.element, self.image)
+        DCEI.SetFrameMinSize(self.element, self.sizeX,self.sizeY)
+    end
+    
+    
+    DCEI.SetFrameHorizontalOffsetInParent(self.element, self.hoffset)
+    DCEI.SetFrameVerticalOffsetInParent(self.element, self.voffset)
+    if self.alignment == true then
+        if self.alignX == 1 then
+            DCEI.SetFrameRightAlignmentInParent(self.element)
+        end
+        if self.alignX == -1 then
+            DCEI.SetFrameLeftAlignmentInParent(self.element)
+        end
+        if self.alignY == 1 then
+            DCEI.SetFrameTopAlignmentInParent(self.element)
+        end
+        if self.alignY == -1 then
+            DCEI.SetFrameBottomAlignmentInParent(self.element)
+        end
+    end
+end
+
+function ui_element_image.new(istext, text, element, image, sizeX, sizeY, hoffset, voffset, alignment, alignX, alignY )
+    local instance = setmetatable({}, ui_element_image)
+    instance.istext = istext
+    instance.text = text    
+    instance.element = element
+    instance.image = image
+    instance.sizeX = sizeX
+    instance.sizeY = sizeY
+    instance.hoffset = hoffset
+    instance.voffset = voffset
+    instance.alignment = alignment
+    instance.alignX = alignX
+    instance.alignY = alignY
+    return instance
+end
+
+
+-- TRIGGERS
+function OnMapStart()
+
+    upgradespanel = ui_element_image.new(false, nil, frame_upgrades,"pocketquest_icon_rune_background", 900, 600, 0, 0, false, 0,0)
+    upgradespanel:SetUp()
+    upgradehero = ui_element_image.new(false, nil,frame_hero_image,"hero_hercules", 400, 500, 50, 0, true, -1,0)
+    upgradehero:SetUp()
+
+
+    upgradehealthbackground = ui_element_image.new(false, nil,frame_health_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, 120, false, 0,0)
+    upgradehealthbackground:SetUp()
+    upgradehealthimage = ui_element_image.new(false, nil,frame_health_image,"icon_att_health", 75, 75, 0, 0, false,0,0)
+    upgradehealthimage:SetUp()
+    upgradehealthplus = ui_element_image.new(false, nil,frame_health_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
+    upgradehealthplus:SetUp()
+    
+    DCEI.SetSize(frame, 100, 100)
+    DCEI.SetBackgroundImage(frame, "airship_onMap")
+    DCEI.SetBackgroundImageFillAmount(frame, 0.25)
+    DCEI.SetBackgroundImageFillHorizontal(frame)
+
+    upgrademanabackground = ui_element_image.new(false, nil,frame_mana_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, 0, false, 0,0)
+    upgrademanabackground:SetUp()
+   upgrademanaimage = ui_element_image.new(false, nil,frame_mana_image,"talent_mana_regen", 75, 75, 0, 0, false,0,0)
+   upgrademanaimage:SetUp()
+    upgrademanaplus = ui_element_image.new(false, nil,frame_mana_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
+    upgrademanaplus:SetUp()
+
+    upgradeattackbackground = ui_element_image.new(false, nil,frame_attack_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, -120, false, 0,0)
+    upgradeattackbackground:SetUp()
+    upgradeattackimage = ui_element_image.new(false, nil,frame_attack_image,"icon_sword", 75, 75, 0, 0, false,0,0)
+    upgradeattackimage:SetUp()
+    upgradeattackplus = ui_element_image.new(false, nil,frame_attack_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
+    upgradeattackplus:SetUp()
+
+    startgamebutton = ui_element_image.new(false, nil,frame_start_button,"btn_grey", 300, 100, 0, -5, true, 0,-1)
+    startgamebutton:SetUp()
+    startgametext = ui_element_image.new(true, "Start Level",frame_start_text,nil, 40, 0, 0, 0, false,0,0)
+    startgametext:SetUp()
+
+    upgradegoldimage = ui_element_image.new(false, nil,frame_gold_image,"golden_pass_overview", 100, 100, -125, -35, true, 1,1)
+    upgradegoldimage:SetUp()
+    upgradegoldtext = ui_element_image.new(true, goldvalue,frame_gold_value,nil, 50, 0, -215, -60, true,1,1)
+    upgradegoldtext:SetUp()
+    
+end
+
+function StartGame()
+
+hero_unit = DCEI.CreateUnit(1,1, hero_Hercules, 16,16,0,-1)
+DCEI.LogMessage(manalvl)
+DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Health Buff", healthlvl)
+DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Mana Buff", manalvl)
+DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Damage Buff", attacklvl)
+
+
+ability1 = ui_element_image.new(false, nil,button_Ability1,"spell_judgement", 75, 75, -100, 15, true, 0, -1)
+ability1:SetUp()
+
+ability2 = ui_element_image.new(false, nil,button_Ability2,"spell_walloffire", 75, 75, 0, 15, true, 0, -1)
+ability2:SetUp()
+
+ability3 = ui_element_image.new(false, nil,button_Ability3,"spell_consecrate", 75, 75, 100, 15, true, 0, -1)
+ability3:SetUp()
+
+
+DCEI.ShowUnitStatusUi(2, hero_unit)
+
+
+DCEI.TriggerAddTimerEventPeriodicIndefinite(PerSecondUpdate, 1, true, true)
+
+
+end
+
+--Butons
+
+--Upgrades Screen
+    DCEI.SetOnClickCallback(
+    frame_start_button, 
+        function()
+            DCEI.DestroyFrame(frame_upgrades)
+            StartGame()
+        end
+    )
+    DCEI.SetOnClickCallback(
+        frame_health_background, 
+            function()
+                PurchaseUpgrade(10,1)
+            end
+        )
+    DCEI.SetOnClickCallback(
+    frame_mana_background, 
+        function()
+            PurchaseUpgrade(10,2)
+        end
+    )
+    DCEI.SetOnClickCallback(
+    frame_attack_background, 
+        function()
+            PurchaseUpgrade(10,3)       
+        end
+    )  
+function PurchaseUpgrade(cost, upgrade)
+    if goldvalue >= cost then
+    goldvalue = goldvalue - cost
+    if upgrade == 1 then
+        healthlvl = healthlvl + 1
+    end
+    if upgrade == 2 then
+        manalvl = manalvl + 1
+    end
+    if upgrade == 3 then
+        attacklvl = attacklvl + 1
+    end
+    DCEI.SetTextFrameText(frame_gold_value, goldvalue)
+    end
+
+end
+
+--Abilities
+DCEI.SetOnClickCallback(
+    button_Ability1, 
+        function()
+            local position = DCEI.GetUnitPosition2D(hero_unit)
+           DCEI.CastAbilityAtPosition("Hero Hercules Uppercut", hero_unit, position.x,position.y,true)          
+        end
+    )
+
+    DCEI.SetOnClickCallback(
+    button_Ability2, 
+        function()
+            local position = DCEI.GetUnitPosition2D(hero_unit)
+            DCEI.CastAbilityAtPosition("Hero Hercules DoublePunch", hero_unit, position.x,position.y,true) 
+        end
+    )
+
+DCEI.SetOnClickCallback(
+    button_Ability3, 
+        function()
+            local position = DCEI.GetUnitPosition2D(hero_unit)
+            DCEI.CastAbilityAtPosition("Hero Hercules GroundSmash", hero_unit,position.x,position.y,true)
+        end
+    )
+
+
+
+function OnUnitDied()
+    local u = DCEI.TriggeringUnit
+    for i, v in pairs(group) do
+        if v == u then
+            table.remove(group,i)
+        end
+    end   
+    if #group == 0 then
+        DCEI.SetEnabledCameraClamp(false)
+        DCEI.SetCameraFocusWithGameTime(34, 16, 3, false)
+    end
+end
+
+function PerSecondUpdate()
+    if DCEI.GetMana(hero_unit) >=15 then
+        DCEI.SetButtonFrameEnable(button_Ability1, true)
+    else
+        DCEI.SetButtonFrameEnable(button_Ability1, false)
+    end
+    if DCEI.GetMana(hero_unit) >=30 then
+        DCEI.SetButtonFrameEnable(button_Ability2, true)
+    else
+        DCEI.SetButtonFrameEnable(button_Ability2, false)
+    end
+    if DCEI.GetMana(hero_unit) >=60 then
+        DCEI.SetButtonFrameEnable(button_Ability3, true)
+    else
+        DCEI.SetButtonFrameEnable(button_Ability3, false)
+    end
+ end
+
+
+-- INITIALIZE
+
+DCEI.TriggerAddTimerEventElapsed(OnMapStart, 0)
+DCEI.TriggerAddUnitDiedEvent(DCEI.UnitAny, OnUnitDied)

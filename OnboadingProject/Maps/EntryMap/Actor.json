@@ -1,0 +1,192 @@
+{
+    "actors": {
+        "Hero Hercules": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "hercules"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Hercules GroundSmash"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimationWithDuration": {
+                                    "clipId": 13,
+                                    "clipDuration": 1.75,
+                                    "useRealTimer": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Hercules DoublePunch"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimationWithDuration": {
+                                    "clipId": 10,
+                                    "clipDuration": 1.25,
+                                    "useRealTimer": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Hercules Uppercut"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimationWithDuration": {
+                                    "clipId": 17,
+                                    "clipDuration": 1,
+                                    "useRealTimer": true
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "walkAnimationSpeed": 1.7,
+                "modelScale": 1.25
+            }
+        },
+        "Hero Hercules DoublePunch AOE Action Actor": {
+            "actionActor": {
+                "effect": "Hero Hercules DoublePunch AOE",
+                "launchModel": "Hero Hercules DoublePunch AOE Launch Model",
+                "launchModelDetached": true,
+                "impactModel": "Hero Hercules DoublePunch AOE Impact",
+                "impactModelDetached": false
+            }
+        },
+        "Hero Hercules DoublePunch AOE Impact": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_spell_warbots_death"
+                },
+                "modelScale": 1.5
+            }
+        },
+        "Hero Hercules DoublePunch AOE Launch Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_tower_lighthouse_troop_spawn"
+                },
+                "hostSiteOperations": [
+                    "Hero Hercules DoublePunch AOE SOp Rotation",
+                    "Hero Hercules DoublePunch AOE SOp Location"
+                ],
+                "modelScale": 2.5
+            }
+        },
+        "Hero Hercules DoublePunch AOE SOp Location": {
+            "siteOperation": {
+                "rotate": {
+                    "x": 90,
+                    "y": 0,
+                    "orientation": 1
+                }
+            }
+        },
+        "Hero Hercules DoublePunch AOE SOp Rotation": {
+            "siteOperation": {
+                "offset": {
+                    "x": 0,
+                    "y": 1,
+                    "z": 0.1,
+                    "orientation": 1
+                }
+            }
+        },
+        "Hero Hercules GroundSmash AOE Action Actor": {
+            "actionActor": {
+                "effect": "Hero Hercules GroundSmash AOE",
+                "launchModel": "Hero Hercules GroundSmash AOE Launch Model",
+                "launchModelDetached": true,
+                "impactModel": "Hero Hercules GroundSmash AOE Impact",
+                "impactModelDetached": false
+            }
+        },
+        "Hero Hercules GroundSmash AOE Impact": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_ship_normal_impact_small"
+                },
+                "modelScale": 1.5
+            }
+        },
+        "Hero Hercules GroundSmash AOE Launch Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_chosen_smite_impact_aoe"
+                },
+                "modelScale": 3.5
+            }
+        },
+        "Hero Hercules GroundSmash AOE SOp": {
+            "siteOperation": {
+                "rotate": {
+                    "y": 0
+                }
+            }
+        },
+        "Hero Hercules Uppercut AOE Action Actor": {
+            "actionActor": {
+                "effect": "Hero Hercules Uppercut AOE",
+                "launchModel": "Hero Hercules Uppercut AOE Launch Model",
+                "launchModelDetached": true,
+                "impactModel": "Hero Hercules Uppercut AOE Impact",
+                "impactModelDetached": false
+            }
+        },
+        "Hero Hercules Uppercut AOE Impact": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_status_mark_impact"
+                },
+                "modelScale": 0.5
+            }
+        },
+        "Hero Hercules Uppercut AOE Launch Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_boss_thunderbird_wingbuffet_missile"
+                },
+                "hostSiteOperations": [
+                    "Hero Hercules Uppercut AOE SOp"
+                ],
+                "modelScale": 1
+            }
+        },
+        "Hero Hercules Uppercut AOE SOp": {
+            "siteOperation": {
+                "offset": {
+                    "x": 0,
+                    "z": 0.5,
+                    "orientation": 1
+                }
+            }
+        }
+    }
+}

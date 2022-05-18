@@ -1,0 +1,1 @@
+{ "GameEntityList": [ { "UnitName": "Standard MeleeUnit", "Position": [ 16.99, 0, 17.44 ], "Rotation": [ 0, 0, 0, 1 ], "Player": -1 }, { "UnitName": "Standard MeleeUnit", "Position": [ 14.02, 0, 15.93 ], "Rotation": [ 0, 0, 0, 1 ], "Player": -1 }, { "UnitName": "Standard MeleeUnit", "Position": [ 12.79, 0, 17.2 ], "Rotation": [ 0, 0, 0, 1 ], "Player": -1 } ] }
