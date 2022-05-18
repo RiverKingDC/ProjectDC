@@ -23,8 +23,8 @@ local frame_hero_image = DCEI.CreateFrame(frame_upgrades)
 local frame_health_background = DCEI.CreateButtonFrame(frame_upgrades)
 local frame_health_image = DCEI.CreateFrame(frame_health_background)
 local frame_health_plus = DCEI.CreateFrame(frame_health_background)
-local frame_healthbar_background = DCEI.NewFrame(frame_upgrades)
-local frame_healthbar_fill = DCEI.NewFrame(frame_upgrades)
+-- local frame_healthbar_background = DCEI.NewFrame(frame_upgrades)
+-- local frame_healthbar_fill = DCEI.NewFrame(frame_upgrades)
 
 local frame_mana_background = DCEI.CreateButtonFrame(frame_upgrades)
 local frame_mana_image = DCEI.CreateFrame(frame_mana_background)
@@ -125,10 +125,10 @@ function OnMapStart()
     upgradehealthplus = ui_element_image.new(false, nil,frame_health_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
     upgradehealthplus:SetUp()
     
-    DCEI.SetSize(frame, 100, 100)
-    DCEI.SetBackgroundImage(frame, "airship_onMap")
-    DCEI.SetBackgroundImageFillAmount(frame, 0.25)
-    DCEI.SetBackgroundImageFillHorizontal(frame)
+    -- DCEI.SetSize(frame, 100, 100)
+    -- DCEI.SetBackgroundImage(frame, "airship_onMap")
+    -- DCEI.SetBackgroundImageFillAmount(frame, 0.25)
+    -- DCEI.SetBackgroundImageFillHorizontal(frame)
 
     upgrademanabackground = ui_element_image.new(false, nil,frame_mana_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, 0, false, 0,0)
     upgrademanabackground:SetUp()
@@ -232,8 +232,9 @@ end
 DCEI.SetOnClickCallback(
     button_Ability1, 
         function()
-            local position = DCEI.GetUnitPosition2D(hero_unit)
-           DCEI.CastAbilityAtPosition("Hero Hercules Uppercut", hero_unit, position.x,position.y,true)          
+           -- local position = DCEI.GetUnitPosition2D(hero_unit)
+         --  DCEI.CastAbilityAtPosition("Hero Hercules Uppercut", hero_unit, position.x,position.y,true)          
+         DCEI.CastAbilityAtUnit("Hero Hercules Uppercut", hero_unit, hero_unit,true) 
         end
     )
 
