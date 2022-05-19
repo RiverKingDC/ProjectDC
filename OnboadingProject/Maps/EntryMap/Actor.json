@@ -1,5 +1,102 @@
 {
     "actors": {
+        "Broken Structure": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "PropModel",
+                    "name": "forestworld_wood_tower"
+                }
+            }
+        },
+        "Empty Section 1": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_chosen_radiance_burn"
+                }
+            }
+        },
+        "Empty Section 2": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_chosen_radiance_burn"
+                }
+            }
+        },
+        "Empty Section 3": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_chosen_radiance_burn"
+                }
+            }
+        },
+        "Enemy Skeleton 1": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "deathknight_pet_skeletontroop"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Good Structure": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "PropModel",
+                    "name": "forestworld_castleset_wall03"
+                },
+                "modelScale": 2
+            }
+        },
         "Hero Hercules": {
             "prefix": "",
             "parent": "_StandardUnit DecayOnDeath",

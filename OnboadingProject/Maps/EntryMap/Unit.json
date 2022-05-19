@@ -1,9 +1,81 @@
 {
     "units": {
+        "Broken Structure": {
+            "baseUnit": "_CBuilding",
+            "components": {
+                "unitStats": {
+                    "radius": 0.5625,
+                    "immortal": true,
+                    "selectable": false,
+                    "targetPriority": 0
+                }
+            }
+        },
+        "Empty Section 1": {
+            "components": {
+                "unitStats": {
+                    "radius": 0,
+                    "immortal": true
+                }
+            }
+        },
+        "Empty Section 2": {
+            "components": {
+                "unitStats": {
+                    "radius": 0,
+                    "immortal": true
+                }
+            }
+        },
+        "Empty Section 3": {
+            "components": {
+                "unitStats": {
+                    "radius": 0,
+                    "immortal": true
+                }
+            }
+        },
+        "Enemy Skeleton 1": {
+            "components": {
+                "health": {
+                    "maxHealth": 10
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "turning": {
+                    "turningSpeed": 900
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 15,
+                        "leashResetRadius": 15,
+                        "forceRescan": {
+                            "period": 1
+                        }
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Enemy Skeleton Weapon"
+                ]
+            }
+        },
+        "Good Structure": {
+            "baseUnit": "_CBuilding",
+            "components": {
+                "unitStats": {
+                    "radius": 1.1875,
+                    "targetPriority": 30
+                }
+            }
+        },
         "Hero Hercules": {
             "baseUnit": "_CUnit",
             "components": {
                 "unitStats": {
+                    "targetPriority": 1,
                     "selectionPriority": 2
                 },
                 "health": {

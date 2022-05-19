@@ -10,6 +10,9 @@ local goldvalue = 100
 local healthlvl = 0
 local manalvl = 0
 local attacklvl = 0
+local enemywave = {}
+local currentsection = 0
+local cameraX = 16
 --UI
 local root = DCEI.GetUiRootFrame()
 --UI Ability Buttons
@@ -159,7 +162,6 @@ end
 function StartGame()
 
 hero_unit = DCEI.CreateUnit(1,1, hero_Hercules, 16,16,0,-1)
-DCEI.LogMessage(manalvl)
 DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Health Buff", healthlvl)
 DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Mana Buff", manalvl)
 DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Damage Buff", attacklvl)
@@ -180,9 +182,23 @@ DCEI.ShowUnitStatusUi(2, hero_unit)
 
 DCEI.TriggerAddTimerEventPeriodicIndefinite(PerSecondUpdate, 1, true, true)
 
-
+SpawnEnemies()
 end
 
+
+function SpawnEnemies()
+    currentsection = currentsection + 1
+    local spawners = DCEI.FindUnits("Empty Section " .. currentsection)
+     
+    for i, v in pairs(spawners) do
+
+        local pos = DCEI.GetUnitPosition2D(v)
+        local newUnit = DCEI.CreateUnit(-1,-1, "Enemy Skeleton 1",pos.x,pos.y,-1,0)
+        table.insert(enemywave, newUnit)
+       -- table.remove( spawners, i )
+        DCEI.RemoveUnit(v)
+    end
+end
 --Butons
 
 --Upgrades Screen
@@ -232,8 +248,6 @@ end
 DCEI.SetOnClickCallback(
     button_Ability1, 
         function()
-           -- local position = DCEI.GetUnitPosition2D(hero_unit)
-         --  DCEI.CastAbilityAtPosition("Hero Hercules Uppercut", hero_unit, position.x,position.y,true)          
          DCEI.CastAbilityAtUnit("Hero Hercules Uppercut", hero_unit, hero_unit,true) 
         end
     )
@@ -241,16 +255,14 @@ DCEI.SetOnClickCallback(
     DCEI.SetOnClickCallback(
     button_Ability2, 
         function()
-            local position = DCEI.GetUnitPosition2D(hero_unit)
-            DCEI.CastAbilityAtPosition("Hero Hercules DoublePunch", hero_unit, position.x,position.y,true) 
+            DCEI.CastAbilityAtUnit("Hero Hercules DoublePunch", hero_unit, hero_unit,true) 
         end
     )
 
 DCEI.SetOnClickCallback(
     button_Ability3, 
         function()
-            local position = DCEI.GetUnitPosition2D(hero_unit)
-            DCEI.CastAbilityAtPosition("Hero Hercules GroundSmash", hero_unit,position.x,position.y,true)
+            DCEI.CastAbilityAtUnit("Hero Hercules GroundSmash", hero_unit, hero_unit,true) 
         end
     )
 
@@ -258,14 +270,43 @@ DCEI.SetOnClickCallback(
 
 function OnUnitDied()
     local u = DCEI.TriggeringUnit
-    for i, v in pairs(group) do
+    local Pos = DCEI.GetUnitPosition2D(u)
+    local name = DCEI.UnitName(u)
+    if name == "Good Structure" then
+      local  temp = DCEI.CreateUnit(1,1, "Broken Structure", Pos.x,Pos.y,0,-1)
+    end
+    if name == "Good Structure" then
+      local  temp = DCEI.CreateUnit(1,1, "Broken Structure", Pos.x,Pos.y,0,-1)
+    end
+
+    for i, v in pairs(enemywave) do
         if v == u then
-            table.remove(group,i)
+            table.remove(enemywave,i)
         end
+      
     end   
-    if #group == 0 then
-        DCEI.SetEnabledCameraClamp(false)
-        DCEI.SetCameraFocusWithGameTime(34, 16, 3, false)
+    if #enemywave == 0 and currentsection >= 1 then
+        DCEI.DisableUnitSelection(hero_unit)
+        DCEI.DeselectUnit(hero_unit)
+        
+        if currentsection == 1 then
+            cameraX = 34
+        end
+        if currentsection == 2 then
+            cameraX = 52
+        end
+        DCEI.Move(hero_unit, cameraX,16)
+        DCEI.TriggerAddTimerEventElapsed(
+            function()
+            DCEI.SetEnabledCameraClamp(false)
+            
+            DCEI.SetCameraFocusWithGameTime(cameraX, 16, 3, false)
+            DCEI.EnableUnitSelection(hero_unit)
+           SpawnEnemies()
+            end,
+            2
+        )
+        
     end
 end
 

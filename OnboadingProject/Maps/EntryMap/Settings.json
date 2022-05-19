@@ -9,7 +9,9 @@
     },
     "triggerSettings": {
         "usedUnits": [
-            "Hero Hercules"
+            "Hero Hercules",
+            "Broken Structure",
+            "Enemy Skeleton 1"
         ],
         "usedBehaviors": [
             "Hero Damage Buff",

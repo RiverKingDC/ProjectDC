@@ -1,5 +1,11 @@
 {
     "weapons": {
+        "Enemy Skeleton Weapon": {
+            "parent": "_StandardMeleeWeapon",
+            "stats": {
+                "scanRange": 16
+            }
+        },
         "Hero Hercules StardardMelee": {
             "parent": "_StandardMeleeWeapon"
         }

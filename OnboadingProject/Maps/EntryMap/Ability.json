@@ -11,8 +11,8 @@
                 "mana": 30
             },
             "targetFilter": {
-                "player": 2,
-                "ally": 2
+                "player": 0,
+                "ally": 0
             }
         },
         "Hero Hercules GroundSmash": {
@@ -26,11 +26,12 @@
                 "mana": 60
             },
             "targetFilter": {
-                "player": 2,
-                "ally": 2
+                "player": 0,
+                "ally": 0
             }
         },
         "Hero Hercules Uppercut": {
+            "abilityType": 2,
             "effect": "Hero Hercules Uppercut AOE",
             "stats": {
                 "prepTime": 0.25,
@@ -41,8 +42,8 @@
                 "mana": 15
             },
             "targetFilter": {
-                "player": 2,
-                "ally": 2
+                "player": 0,
+                "ally": 0
             }
         }
     }
