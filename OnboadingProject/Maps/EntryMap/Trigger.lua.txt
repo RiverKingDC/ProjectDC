@@ -11,14 +11,24 @@ local healthlvl = 0
 local manalvl = 0
 local attacklvl = 0
 local enemywave = {}
-local currentsection = 0
+local allywave = {}
+local currentsection = 1
 local cameraX = 16
+local selectedTroop = 0
+local isBattling = false
+local section1 = {}
+local section2 = {}
+local section3 = {}
 --UI
 local root = DCEI.GetUiRootFrame()
 --UI Ability Buttons
 local button_Ability1 = DCEI.CreateButtonFrame(root)
 local button_Ability2 = DCEI.CreateButtonFrame(root)
 local button_Ability3 = DCEI.CreateButtonFrame(root)
+--Troop Spawner
+local button_healer = DCEI.CreateButtonFrame(root)
+local button_archer = DCEI.CreateButtonFrame(root)
+local button_swords = DCEI.CreateButtonFrame(root)
 --Upgrade Menu
 local frame_upgrades = DCEI.CreateFrame(root)
 local frame_hero_image = DCEI.CreateFrame(frame_upgrades)
@@ -115,53 +125,58 @@ end
 -- TRIGGERS
 function OnMapStart()
 
-    upgradespanel = ui_element_image.new(false, nil, frame_upgrades,"pocketquest_icon_rune_background", 900, 600, 0, 0, false, 0,0)
-    upgradespanel:SetUp()
-    upgradehero = ui_element_image.new(false, nil,frame_hero_image,"hero_hercules", 400, 500, 50, 0, true, -1,0)
-    upgradehero:SetUp()
+--     upgradespanel = ui_element_image.new(false, nil, frame_upgrades,"pocketquest_icon_rune_background", 900, 600, 0, 0, false, 0,0)
+--     upgradespanel:SetUp()
+--     upgradehero = ui_element_image.new(false, nil,frame_hero_image,"hero_hercules", 400, 500, 50, 0, true, -1,0)
+--     upgradehero:SetUp()
 
 
-    upgradehealthbackground = ui_element_image.new(false, nil,frame_health_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, 120, false, 0,0)
-    upgradehealthbackground:SetUp()
-    upgradehealthimage = ui_element_image.new(false, nil,frame_health_image,"icon_att_health", 75, 75, 0, 0, false,0,0)
-    upgradehealthimage:SetUp()
-    upgradehealthplus = ui_element_image.new(false, nil,frame_health_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
-    upgradehealthplus:SetUp()
+--     upgradehealthbackground = ui_element_image.new(false, nil,frame_health_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, 120, false, 0,0)
+--     upgradehealthbackground:SetUp()
+--     upgradehealthimage = ui_element_image.new(false, nil,frame_health_image,"icon_att_health", 75, 75, 0, 0, false,0,0)
+--     upgradehealthimage:SetUp()
+--     upgradehealthplus = ui_element_image.new(false, nil,frame_health_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
+--     upgradehealthplus:SetUp()
     
-    -- DCEI.SetSize(frame, 100, 100)
-    -- DCEI.SetBackgroundImage(frame, "airship_onMap")
-    -- DCEI.SetBackgroundImageFillAmount(frame, 0.25)
-    -- DCEI.SetBackgroundImageFillHorizontal(frame)
 
-    upgrademanabackground = ui_element_image.new(false, nil,frame_mana_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, 0, false, 0,0)
-    upgrademanabackground:SetUp()
-   upgrademanaimage = ui_element_image.new(false, nil,frame_mana_image,"talent_mana_regen", 75, 75, 0, 0, false,0,0)
-   upgrademanaimage:SetUp()
-    upgrademanaplus = ui_element_image.new(false, nil,frame_mana_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
-    upgrademanaplus:SetUp()
 
-    upgradeattackbackground = ui_element_image.new(false, nil,frame_attack_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, -120, false, 0,0)
-    upgradeattackbackground:SetUp()
-    upgradeattackimage = ui_element_image.new(false, nil,frame_attack_image,"icon_sword", 75, 75, 0, 0, false,0,0)
-    upgradeattackimage:SetUp()
-    upgradeattackplus = ui_element_image.new(false, nil,frame_attack_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
-    upgradeattackplus:SetUp()
+--     upgrademanabackground = ui_element_image.new(false, nil,frame_mana_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, 0, false, 0,0)
+--     upgrademanabackground:SetUp()
+--    upgrademanaimage = ui_element_image.new(false, nil,frame_mana_image,"talent_mana_regen", 75, 75, 0, 0, false,0,0)
+--    upgrademanaimage:SetUp()
+--     upgrademanaplus = ui_element_image.new(false, nil,frame_mana_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
+--     upgrademanaplus:SetUp()
 
-    startgamebutton = ui_element_image.new(false, nil,frame_start_button,"btn_grey", 300, 100, 0, -5, true, 0,-1)
-    startgamebutton:SetUp()
-    startgametext = ui_element_image.new(true, "Start Level",frame_start_text,nil, 40, 0, 0, 0, false,0,0)
-    startgametext:SetUp()
+--     upgradeattackbackground = ui_element_image.new(false, nil,frame_attack_background,"cartoon_icon_mergewar_panel5_brown", 110, 110, 35, -120, false, 0,0)
+--     upgradeattackbackground:SetUp()
+--     upgradeattackimage = ui_element_image.new(false, nil,frame_attack_image,"icon_sword", 75, 75, 0, 0, false,0,0)
+--     upgradeattackimage:SetUp()
+--     upgradeattackplus = ui_element_image.new(false, nil,frame_attack_plus,"cartoon_icon_mergewar_plus4", 35, 35, 5, -5, true,-1,1)
+--     upgradeattackplus:SetUp()
 
-    upgradegoldimage = ui_element_image.new(false, nil,frame_gold_image,"golden_pass_overview", 100, 100, -125, -35, true, 1,1)
-    upgradegoldimage:SetUp()
-    upgradegoldtext = ui_element_image.new(true, goldvalue,frame_gold_value,nil, 50, 0, -215, -60, true,1,1)
-    upgradegoldtext:SetUp()
-    
+--     startgamebutton = ui_element_image.new(false, nil,frame_start_button,"btn_grey", 300, 100, 0, -5, true, 0,-1)
+--     startgamebutton:SetUp()
+--     startgametext = ui_element_image.new(true, "Start Level",frame_start_text,nil, 40, 0, 0, 0, false,0,0)
+--     startgametext:SetUp()
+
+--     upgradegoldimage = ui_element_image.new(false, nil,frame_gold_image,"golden_pass_overview", 100, 100, -125, -35, true, 1,1)
+--     upgradegoldimage:SetUp()
+--     upgradegoldtext = ui_element_image.new(true, goldvalue,frame_gold_value,nil, 50, 0, -215, -60, true,1,1)
+--     upgradegoldtext:SetUp()
+
+spawnarcher = ui_element_image.new(false, nil,button_archer,"icon_enhance_arrowtower_extraarcher", 100, 100, -100, 0, true, 1,-1)
+    spawnarcher:SetUp()
+spawnhealer = ui_element_image.new(false, nil,button_healer,"icon_ingame_lighthouse_unit_rank03", 100, 100, 0, 0, true, 1,-1)
+    spawnhealer:SetUp()
+    spawnswords = ui_element_image.new(false, nil,button_swords,"icon_enhance_centaurarcher_warhall", 100, 100, -200, 0, true, 1,-1)
+    spawnswords:SetUp()
+    ConvertSpawnPoints()
+
 end
 
 function StartGame()
 
-hero_unit = DCEI.CreateUnit(1,1, hero_Hercules, 16,16,0,-1)
+hero_unit = DCEI.CreateUnit(1,1, hero_Hercules, 16,23,0,-1)
 DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Health Buff", healthlvl)
 DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Mana Buff", manalvl)
 DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Damage Buff", attacklvl)
@@ -182,22 +197,68 @@ DCEI.ShowUnitStatusUi(2, hero_unit)
 
 DCEI.TriggerAddTimerEventPeriodicIndefinite(PerSecondUpdate, 1, true, true)
 
-SpawnEnemies()
+
 end
 
+function ConvertSpawnPoints()
+    local spawners1 = DCEI.FindUnits("Empty Section 1")
 
-function SpawnEnemies()
-    currentsection = currentsection + 1
-    local spawners = DCEI.FindUnits("Empty Section " .. currentsection)
-     
-    for i, v in pairs(spawners) do
-
+    for i, v in pairs(spawners1) do
         local pos = DCEI.GetUnitPosition2D(v)
-        local newUnit = DCEI.CreateUnit(-1,-1, "Enemy Skeleton 1",pos.x,pos.y,-1,0)
-        table.insert(enemywave, newUnit)
-       -- table.remove( spawners, i )
+        table.insert(section1, pos)
         DCEI.RemoveUnit(v)
     end
+    local spawners2 = DCEI.FindUnits("Empty Section 2")
+    for i, v in pairs(spawners2) do
+        local pos = DCEI.GetUnitPosition2D(v)
+        table.insert(section2, pos)
+        DCEI.RemoveUnit(v)
+    end
+    local spawners3 = DCEI.FindUnits("Empty Section 3")
+    for i, v in pairs(spawners3) do
+        local pos = DCEI.GetUnitPosition2D(v)
+        table.insert(section3, pos)
+        DCEI.RemoveUnit(v)
+    end
+    SpawnEnemies()
+end
+
+function SpawnEnemies()
+    
+    if currentsection == 1 then
+        for i, v in pairs(section1) do
+            local newUnit = DCEI.CreateUnit(1,-1, "Enemy Skeleton 1",(cameraX+8),16,-1,0)
+            table.insert(enemywave, newUnit)
+            DCEI.Move(newUnit, v.x,v.y)
+            DCEI.Wait(0.1, true)
+        end
+    end
+    if currentsection == 2 then
+        for i, v in pairs(section2) do
+            local newUnit = DCEI.CreateUnit(1,-1, "Enemy Skeleton 1",(cameraX+8),16,-1,0)
+            table.insert(enemywave, newUnit)
+            DCEI.Move(newUnit, v.x,v.y)
+            DCEI.Wait(0.1, true)
+        end
+    end
+    if currentsection == 3 then
+        for i, v in pairs(section3) do
+            local newUnit = DCEI.CreateUnit(1,-1, "Enemy Skeleton 1",(cameraX+8),16,-1,0)
+            table.insert(enemywave, newUnit)
+            DCEI.Move(newUnit, v.x,v.y)
+            DCEI.Wait(0.1, true)
+        end
+    end
+
+
+    -- for i, v in pairs(spawners) do
+
+    --     local pos = DCEI.GetUnitPosition2D(v)
+    --     local newUnit = DCEI.CreateUnit(1,-1, "Enemy Skeleton 1",pos.x,pos.y,-1,0)
+    --     table.insert(enemywave, newUnit)
+    --     --DCEI.SetUnitTeamId
+    --     DCEI.RemoveUnit(v)
+    -- end
 end
 --Butons
 
@@ -207,6 +268,11 @@ end
         function()
             DCEI.DestroyFrame(frame_upgrades)
             StartGame()
+            for i, v in pairs(enemywave) do
+                DCEI.SetUnitTeamId(v, -1)
+                
+            end
+            isBattling = true
         end
     )
     DCEI.SetOnClickCallback(
@@ -244,11 +310,65 @@ function PurchaseUpgrade(cost, upgrade)
 
 end
 
+--spawn troops
+DCEI.SetOnClickCallback(
+    button_swords, 
+        function()
+            SpawnTroops(1)
+        end
+    )
+    DCEI.SetOnClickCallback(
+        button_archer, 
+            function()
+                SpawnTroops(2)
+            end
+        )
+    DCEI.SetOnClickCallback(
+    button_healer, 
+        function()
+            SpawnTroops(3)
+        end
+    )
+
+function SpawnTroops(troopNum)
+    
+        if troopNum == 1 then
+            selectedTroop = "Player Troop Swordsman"
+        end
+
+        if troopNum == 2 then
+            selectedTroop = "Player Troop Archer"
+        end
+
+        if troopNum == 3 then
+            selectedTroop = "Player Troop Healer"
+        end
+
+   local posX = ((cameraX-3)+DCEI.Random(-2, 2))
+   local posY = (16 + DCEI.Random(-2, 2))
+        for i = 1,3,1
+        do 
+            local int = (i/2) - 1 
+            local temp = DCEI.CreateUnit(1,1, selectedTroop, (cameraX-8),(16 + DCEI.Random(-1, 1)),0,-1)
+            table.insert(allywave, temp)
+            DCEI.Move(temp, posX, posY + i)
+            DCEI.Wait(0.1, true)
+        end
+    
+    
+    
+    
+end
+
 --Abilities
 DCEI.SetOnClickCallback(
     button_Ability1, 
         function()
          DCEI.CastAbilityAtUnit("Hero Hercules Uppercut", hero_unit, hero_unit,true) 
+         for i, v in pairs(enemywave) do
+            DCEI.SetUnitTeamId(v, -1)
+            
+        end
         end
     )
 
@@ -285,29 +405,110 @@ function OnUnitDied()
         end
       
     end   
-    if #enemywave == 0 and currentsection >= 1 then
-        DCEI.DisableUnitSelection(hero_unit)
-        DCEI.DeselectUnit(hero_unit)
+    for i, v in pairs(allywave) do
+        if v == u then
+            table.remove(allywave,i)
+        end
+    end   
+    if #enemywave == 0  then
+        SectionChange(true)
         
-        if currentsection == 1 then
-            cameraX = 34
-        end
-        if currentsection == 2 then
-            cameraX = 52
-        end
-        DCEI.Move(hero_unit, cameraX,16)
-        DCEI.TriggerAddTimerEventElapsed(
-            function()
-            DCEI.SetEnabledCameraClamp(false)
-            
-            DCEI.SetCameraFocusWithGameTime(cameraX, 16, 3, false)
-            DCEI.EnableUnitSelection(hero_unit)
-           SpawnEnemies()
-            end,
-            2
-        )
+    end  
+    if #allywave == 0  then
+        SectionChange(false)
         
     end
+
+end
+
+function SectionChange(bool)
+
+    DCEI.DisableUnitSelection(hero_unit)
+    DCEI.DeselectUnit(hero_unit)
+    
+    if bool == true then
+        if currentsection < 3 then
+            currentsection = currentsection + 1
+
+            if currentsection == 1 then
+                cameraX = 16
+            end
+            if currentsection == 2 then
+                cameraX = 34
+            end
+            if currentsection == 3 then
+                cameraX = 52
+            end
+            DCEI.Move(hero_unit, cameraX,16)
+            
+            if bool == true then
+                for i, v in pairs(allywave) do
+                    DCEI.Move(v, ((cameraX-5)+DCEI.Random(-2, 2)),(16 + DCEI.Random(-2, 2)))
+                end   
+            else
+                for i, v in pairs(enemywave) do
+                        DCEI.SetUnitTeamId(v,1)
+                    DCEI.Move(v, ((cameraX+5)+DCEI.Random(-2, 2)),(16 + DCEI.Random(-2, 2)))
+                end   
+            end
+            
+            DCEI.TriggerAddTimerEventElapsed(
+                function()
+                DCEI.SetEnabledCameraClamp(false)
+                
+                DCEI.SetCameraFocusWithGameTime(cameraX, 16, 3, false)
+                DCEI.EnableUnitSelection(hero_unit)
+               SpawnEnemies()
+                end,
+                2
+            )
+        else
+
+        end
+    else
+        if currentsection > 1 then
+            currentsection = currentsection - 1
+
+            if currentsection == 1 then
+                cameraX = 16
+            end
+            if currentsection == 2 then
+                cameraX = 34
+            end
+            if currentsection == 3 then
+                cameraX = 52
+            end
+            DCEI.Move(hero_unit, cameraX,16)
+            
+            if bool == true then
+                for i, v in pairs(allywave) do
+                    DCEI.Move(v, ((cameraX-5)+DCEI.Random(-2, 2)),(16 + DCEI.Random(-2, 2)))
+                end   
+            else
+                for i, v in pairs(enemywave) do
+                        DCEI.SetUnitTeamId(v,1)
+                    DCEI.Move(v, ((cameraX+5)+DCEI.Random(-2, 2)),(16 + DCEI.Random(-2, 2)))
+                end   
+            end
+            
+            DCEI.TriggerAddTimerEventElapsed(
+                function()
+                DCEI.SetEnabledCameraClamp(false)
+                
+                DCEI.SetCameraFocusWithGameTime(cameraX, 16, 3, false)
+                DCEI.EnableUnitSelection(hero_unit)
+               SpawnEnemies()
+                end,
+                2
+            )
+        else
+
+        end
+    end
+
+    
+
+
 end
 
 function PerSecondUpdate()

@@ -8,6 +8,33 @@
         },
         "Hero Hercules StardardMelee": {
             "parent": "_StandardMeleeWeapon"
+        },
+        "Player Troop Healer Weapon": {
+            "effectName": "Player Troop Healer Heal Launch",
+            "independentTargetAcquisition": false,
+            "stats": {
+                "preSwing": 0.5,
+                "backSwing": 0.5,
+                "period": 1,
+                "range": 4,
+                "scanRange": 5
+            },
+            "distanceExtendMode": 1,
+            "targetFilter": {
+                "secondarySortKeys": {
+                    "key": 4
+                },
+                "player": 0,
+                "ally": 1,
+                "enemy": 2,
+                "neutral": 2,
+                "unit": 0,
+                "structure": 2,
+                "air": 2,
+                "ground": 0,
+                "stealth": 2,
+                "invulerable": 2
+            }
         }
     }
 }

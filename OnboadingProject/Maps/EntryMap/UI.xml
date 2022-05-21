@@ -1,4 +1,140 @@
 <UI>
-    <Button id="frame" height="100" width="100" backgroundImage="cart" backgroundImageColor="r: 1, g: 1, b: 1, a: 0.5" name="test" />
-    <Text name="test2" />
+    <Frame matchParentHeight="true" matchParentWidth="true" name="GameUI">
+        <Frame bottomAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="140" horizontalOffsetInParent="-25" backgroundImage="bar_exp00_empty" width="250" height="35">
+            <Frame backgroundImage="bar_exp00_fill" backgroundImageFillAmount="0.75" backgroundImageFillHorizontal="true" matchParentHeight="true" matchParentWidth="true" />
+            <Text id="Morale" text="50/100" />
+        </Frame>
+        <HStack spacing="10" padding="10" backgroundImage="frame01_blue" rightAlignmentInParent="true" horizontalOffsetInParent="-20" verticalOffsetInParent="20" bottomAlignmentInParent="true">
+            <Button height="100" width="100" backgroundImage="icon_enhance_centaurarcher_warhall">
+                <Text id="cost" text="5" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
+            </Button>
+            <Button height="100" width="100" backgroundImage="icon_enhance_arrowtower_extraarcher">
+                <Text id="cost" text="10" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
+            </Button>
+            <Button height="100" width="100" backgroundImage="icon_ingame_lighthouse_unit_rank03">
+                <Text id="cost" text="15" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
+            </Button>
+        </HStack>
+        <HStack spacing="10" padding="10" backgroundImage="frame01_blue" leftAlignmentInParent="true" horizontalOffsetInParent="50" verticalOffsetInParent="20" bottomAlignmentInParent="true">
+            <Button height="100" width="100" backgroundImage="icon_spell_judgement" />
+        </HStack>
+    </Frame>
+    <Frame id="Background" width="850" height="600" backgroundImage="frame_slot00" name="Hero Upgrades">
+        <Button id="HerculesButton" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="22" width="100" height="100" backgroundImage="card_hero_hercules" />
+        <Button id="TreeButton" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="127" width="100" height="100" backgroundImage="card_hero_ancienttree" />
+        <Button id="AngelButton" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="232" width="100" height="100" backgroundImage="card_hero_angelwings" />
+        <Button id="ForseerButton" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="337" width="100" height="100" backgroundImage="card_hero_foreseer" />
+        <Button id="LavaButton" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="442" width="100" height="100" backgroundImage="icon_ingame_towerslot_lavaooze" enable="false" />
+        <Frame id="upgradesBackground" bottomAlignmentInParent="true" verticalOffsetInParent="30" width="800" height="450" backgroundImage="frame_slot01">
+            <Frame id="upgradesBackground" leftAlignmentInParent="true" horizontalOffsetInParent="25" width="300" height="400" backgroundImage="frame_slot00">
+                <Frame id="upgradesBackground" matchParentHeight="true" matchParentWidth="true" backgroundImage="hero_hercules" />
+            </Frame>
+            <Frame id="flavorBackground" topAlignmentInParent="true" horizontalOffsetInParent="160" verticalOffsetInParent="-25" width="420" height="110" backgroundImage="frame_slot00">
+                <Button id="upgradeButton" rightAlignmentInParent="true" horizontalOffsetInParent="-15" verticalOffsetInParent="3" width="80" height="80" backgroundImage="icon_ingame_towerslot_upgrade_green" />
+                <Text id="upgradeFlavorText" text="Upgrades their health from 100 to 110" width="300" verticalOffsetInParent="3" horizontalOffsetInParent="-45" />
+            </Frame>
+            <Frame id="heartFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="-5" verticalOffsetInParent="25" width="100" height="100">
+                <Button id="heartBackground" matchParentHeight="true" matchParentWidth="true" backgroundImage="frame_slot00">
+                    <Frame id="heartImage" width="75" height="75" verticalOffsetInParent="5" backgroundImage="icon_att_health" />
+                </Button>
+                <Frame id="bar1" width="75" height="15" verticalOffsetInParent="65" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar3" width="75" height="15" verticalOffsetInParent="85" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar4" width="75" height="15" verticalOffsetInParent="105" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar5" width="75" height="15" verticalOffsetInParent="125" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar6" width="75" height="15" verticalOffsetInParent="145" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar7" width="75" height="15" verticalOffsetInParent="165" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar8" width="75" height="15" verticalOffsetInParent="185" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar9" width="75" height="15" verticalOffsetInParent="205" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar10" width="75" height="15" verticalOffsetInParent="225" backgroundImage="bar_exp00_empty" />
+            </Frame>
+            <Frame id="manaFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="105" verticalOffsetInParent="25" width="100" height="100">
+                <Button id="manaBackground" matchParentHeight="true" matchParentWidth="true" backgroundImage="frame_slot00">
+                    <Frame id="manaImage" width="75" height="75" verticalOffsetInParent="0" backgroundImage="talent_mana_regen" />
+                </Button>
+                <Frame id="bar1" width="75" height="15" verticalOffsetInParent="65" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar3" width="75" height="15" verticalOffsetInParent="85" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar4" width="75" height="15" verticalOffsetInParent="105" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar5" width="75" height="15" verticalOffsetInParent="125" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar6" width="75" height="15" verticalOffsetInParent="145" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar7" width="75" height="15" verticalOffsetInParent="165" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar8" width="75" height="15" verticalOffsetInParent="185" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar9" width="75" height="15" verticalOffsetInParent="205" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar10" width="75" height="15" verticalOffsetInParent="225" backgroundImage="bar_exp00_empty" />
+            </Frame>
+            <Frame id="swordFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="215" verticalOffsetInParent="25" width="100" height="100">
+                <Button id="swordBackground" matchParentHeight="true" matchParentWidth="true" backgroundImage="frame_slot00">
+                    <Frame id="swordImage" width="75" height="75" verticalOffsetInParent="3" backgroundImage="icon_sword" />
+                </Button>
+                <Frame id="bar1" width="75" height="15" verticalOffsetInParent="65" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar3" width="75" height="15" verticalOffsetInParent="85" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar4" width="75" height="15" verticalOffsetInParent="105" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar5" width="75" height="15" verticalOffsetInParent="125" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar6" width="75" height="15" verticalOffsetInParent="145" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar7" width="75" height="15" verticalOffsetInParent="165" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar8" width="75" height="15" verticalOffsetInParent="185" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar9" width="75" height="15" verticalOffsetInParent="205" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar10" width="75" height="15" verticalOffsetInParent="225" backgroundImage="bar_exp00_empty" />
+            </Frame>
+            <Frame id="abilitytFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="325" verticalOffsetInParent="25" width="100" height="100">
+                <Button id="abilitytBackground" matchParentHeight="true" matchParentWidth="true" backgroundImage="frame_slot00">
+                    <Frame id="abilityImage" width="75" height="75" verticalOffsetInParent="3" backgroundImage="icon_energy" />
+                </Button>
+                <Frame id="bar1" width="75" height="15" verticalOffsetInParent="65" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar3" width="75" height="15" verticalOffsetInParent="85" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar4" width="75" height="15" verticalOffsetInParent="105" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar5" width="75" height="15" verticalOffsetInParent="125" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar6" width="75" height="15" verticalOffsetInParent="145" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar7" width="75" height="15" verticalOffsetInParent="165" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar8" width="75" height="15" verticalOffsetInParent="185" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar9" width="75" height="15" verticalOffsetInParent="205" backgroundImage="bar_exp00_empty" />
+                <Frame id="bar10" width="75" height="15" verticalOffsetInParent="225" backgroundImage="bar_exp00_empty" />
+            </Frame>
+        </Frame>
+        <Button id="closeButton" backgroundImage="btn_grey" bottomAlignmentInParent="true" rightAlignmentInParent="true" horizontalOffsetInParent="-10" verticalOffsetInParent="-25" width="150" height="75">
+            <Text id="upgradeFlavorText" text="Close" fontSize="30" verticalOffsetInParent="3" />
+        </Button>
+    </Frame>
+    <Frame matchParentHeight="true" matchParentWidth="true" id="btn_unit_wildsky_barracks_troop_rank01" backgroundImage="wilddefender_background_plate02" name="MapMenu">
+        <Frame id="MapBackground" topAlignmentInParent="true" width="1250" height="650" verticalOffsetInParent="-25" backgroundImage="icon_trophyroom_background03">
+            <Frame id="Water" matchParentHeight="true" horizontalOffsetInParent="375" width="1050" backgroundImage="icon_teslatower_skill_conductivefield" rotation3d="x: 0, y: 0, z: 20" backgroundImageColor="r: 0.333, g: 0.235, b: 0.027, a: 0.610" />
+            <Frame id="Path" width="180" height="10" horizontalOffsetInParent="-340" verticalOffsetInParent="-110" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 25" />
+            <Frame id="Path" width="150" height="10" horizontalOffsetInParent="-75" verticalOffsetInParent="-47" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" />
+            <Frame id="Path" width="120" height="10" horizontalOffsetInParent="70" verticalOffsetInParent="-70" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: -20" />
+            <Frame id="Frame" topAlignmentInParent="true" width="1250" height="650" backgroundImage="frame_border_gold_small" />
+            <Button id="Tower1" horizontalOffsetInParent="-475" verticalOffsetInParent="-150" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808">
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+            </Button>
+            <Button id="Tower2" horizontalOffsetInParent="-200" verticalOffsetInParent="-50" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808">
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+            </Button>
+            <Button id="Tower3" horizontalOffsetInParent="175" verticalOffsetInParent="-125" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808">
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+            </Button>
+            <Button id="btn_grey" backgroundImage="btn_grey" width="200" height="100" bottomAlignmentInParent="true" verticalOffsetInParent="-25">
+                <Text id="start text" text="Start Game" />
+            </Button>
+            <Button id="HeroUpgrades" bottomAlignmentInParent="true" rightAlignmentInParent="true" width="100" height="100" verticalOffsetInParent="-25" horizontalOffsetInParent="25" backgroundImage="icon_ingame_hero_hercules" />
+            <Button id="TroopUpgrades" bottomAlignmentInParent="true" rightAlignmentInParent="true" width="100" height="100" verticalOffsetInParent="-25" horizontalOffsetInParent="-100" backgroundImage="icon_troop_count" />
+        </Frame>
+    </Frame>
+    <Frame matchParentHeight="true" matchParentWidth="true" id="btn_unit_wildsky_barracks_troop_rank01" backgroundImage="wilddefender_background_plate02" name="StartMenu">
+        <Button id="btn_grey" backgroundImage="btn_grey" width="200" height="100" bottomAlignmentInParent="true" verticalOffsetInParent="20">
+            <Text id="start text" text="Start Game" />
+        </Button>
+    </Frame>
+    <VStack xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" name="test">
+        <!-- Declare initial state values. -->
+        <State name="red" booleanValue="false" />
+        <!-- Show different background images depending on the state value and flip state value when clicked. -->
+        <Button bind:backgroundImage="'btn_' .. (state.red and 'red' or 'blue')" bind:onClick="state.red = not state.red">
+            <Text text="switch color" />
+        </Button>
+        <Text bind:text="state.red and 'red' or 'blue'" />
+    </VStack>
 </UI>

@@ -15,7 +15,8 @@
             "components": {
                 "unitStats": {
                     "radius": 0,
-                    "immortal": true
+                    "immortal": true,
+                    "selectable": false
                 }
             }
         },
@@ -23,7 +24,8 @@
             "components": {
                 "unitStats": {
                     "radius": 0,
-                    "immortal": true
+                    "immortal": true,
+                    "selectable": false
                 }
             }
         },
@@ -31,7 +33,8 @@
             "components": {
                 "unitStats": {
                     "radius": 0,
-                    "immortal": true
+                    "immortal": true,
+                    "selectable": false
                 }
             }
         },
@@ -48,8 +51,8 @@
                 },
                 "behavior": {
                     "genericControllableUnit": {
-                        "leashRadius": 15,
-                        "leashResetRadius": 15,
+                        "leashRadius": 16,
+                        "leashResetRadius": 5,
                         "forceRescan": {
                             "period": 1
                         }
@@ -62,12 +65,23 @@
                 ]
             }
         },
-        "Good Structure": {
+        "Evil Structure": {
             "baseUnit": "_CBuilding",
             "components": {
                 "unitStats": {
                     "radius": 1.1875,
                     "targetPriority": 30
+                }
+            }
+        },
+        "Good Structure": {
+            "baseUnit": "_CBuilding",
+            "components": {
+                "unitStats": {
+                    "radius": 1.1875,
+                    "immortal": true,
+                    "selectable": false,
+                    "targetPriority": 0
                 }
             }
         },
@@ -108,6 +122,64 @@
                 "Hero Mana Buff",
                 "Hero Health Buff"
             ]
+        },
+        "Player Troop Archer": {
+            "components": {
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard RangedUnit Weapon"
+                ]
+            }
+        },
+        "Player Troop Healer": {
+            "components": {
+                "unitStats": {
+                    "selectable": true,
+                    "selectionPriority": 1
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Player Troop Healer Weapon"
+                ]
+            }
+        },
+        "Player Troop Swordsman": {
+            "components": {
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard MeleeUnit Weapon"
+                ]
+            }
         }
     }
 }

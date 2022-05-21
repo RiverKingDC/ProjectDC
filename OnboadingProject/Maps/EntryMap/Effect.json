@@ -67,6 +67,24 @@
             "damage": {
                 "damageAmount": 5
             }
+        },
+        "Player Troop Healer Heal": {
+            "heal": {
+                "valueType": 1,
+                "healAmount": 3
+            }
+        },
+        "Player Troop Healer Heal Launch": {
+            "launchMissile": {
+                "targetType": 1,
+                "missileUnit": "Standard RangedUnit Weapon Missile",
+                "effect": "Player Troop Healer Heal",
+                "launchLocation": 7,
+                "impactLocation": 1,
+                "offsetStart": 7,
+                "offsetEnd": 1,
+                "mover": "Standard Ballistic Missile"
+            }
         }
     }
 }

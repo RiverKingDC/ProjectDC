@@ -11,7 +11,10 @@
         "usedUnits": [
             "Hero Hercules",
             "Broken Structure",
-            "Enemy Skeleton 1"
+            "Enemy Skeleton 1",
+            "Player Troop Archer",
+            "Player Troop Healer",
+            "Player Troop Swordsman"
         ],
         "usedBehaviors": [
             "Hero Damage Buff",
@@ -29,7 +32,10 @@
             "talent_mana_regen",
             "icon_sword",
             "cartoon_icon_mergewar_plus4",
-            "golden_pass_overview"
+            "golden_pass_overview",
+            "icon_enhance_arrowtower_extraarcher",
+            "icon_ingame_lighthouse_unit_rank03",
+            "icon_enhance_centaurarcher_warhall"
         ]
     }
 }

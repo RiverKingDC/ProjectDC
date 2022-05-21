@@ -1,4 +1,11 @@
 {
+    "cameraSettings": {
+        "pitchAngleDegree": 51,
+        "allowZoom": false,
+        "allowPanX": false,
+        "allowPanY": false,
+        "viewMode": 0
+    },
     "weatherSettings": {
         "hasRain": false
     }

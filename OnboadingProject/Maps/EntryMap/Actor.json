@@ -6,7 +6,8 @@
                 "resource": {
                     "type": "PropModel",
                     "name": "forestworld_wood_tower"
-                }
+                },
+                "modelScale": 3
             }
         },
         "Empty Section 1": {
@@ -83,8 +84,46 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Enemy Skeleton Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Enemy Skeleton Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
                     }
                 ]
+            }
+        },
+        "Evil Structure": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "PropModel",
+                    "name": "desertworld_castle_dark_column00"
+                },
+                "modelScale": 3
             }
         },
         "Good Structure": {
@@ -94,7 +133,21 @@
                     "type": "PropModel",
                     "name": "forestworld_castleset_wall03"
                 },
-                "modelScale": 2
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "modelScale": 3
             }
         },
         "Hero Hercules": {
@@ -283,6 +336,147 @@
                     "z": 0.5,
                     "orientation": 1
                 }
+            }
+        },
+        "Player Troop Archer": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "arrowtower_unit_rank01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "lighthouse_unit_rank01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "barracks_troop_rank01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         }
     }
