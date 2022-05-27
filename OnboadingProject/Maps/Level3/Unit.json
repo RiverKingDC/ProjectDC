@@ -1,0 +1,789 @@
+{
+    "units": {
+        "Broken Structure": {
+            "baseUnit": "_CBuilding",
+            "components": {
+                "unitStats": {
+                    "radius": 0.5625,
+                    "immortal": true,
+                    "selectable": false,
+                    "targetPriority": 0
+                }
+            }
+        },
+        "Empty Section 1": {
+            "components": {
+                "unitStats": {
+                    "radius": 0,
+                    "immortal": true,
+                    "selectable": false
+                }
+            }
+        },
+        "Empty Section 2": {
+            "components": {
+                "unitStats": {
+                    "radius": 0,
+                    "immortal": true,
+                    "selectable": false
+                }
+            }
+        },
+        "Empty Section 3": {
+            "components": {
+                "unitStats": {
+                    "radius": 0,
+                    "immortal": true,
+                    "selectable": false
+                }
+            }
+        },
+        "Enemy Boss MountedSkeleton": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "ignorePathing": true
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard MeleeUnit Weapon"
+                ]
+            }
+        },
+        "Enemy Skeleton 1": {
+            "components": {
+                "unitStats": {
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 10
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "turning": {
+                    "turningSpeed": 900
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 16,
+                        "leashResetRadius": 5,
+                        "forceRescan": {
+                            "period": 1
+                        }
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Enemy Skeleton Weapon"
+                ]
+            }
+        },
+        "Enemy Skeleton Archer": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "ignorePathing": true
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard RangedUnit Weapon"
+                ]
+            }
+        },
+        "Evil Structure": {
+            "baseUnit": "_CBuilding",
+            "components": {
+                "unitStats": {
+                    "radius": 1.1875,
+                    "targetPriority": 30
+                }
+            }
+        },
+        "Good Structure": {
+            "baseUnit": "_CBuilding",
+            "components": {
+                "unitStats": {
+                    "radius": 1.1875,
+                    "immortal": true,
+                    "selectable": false,
+                    "targetPriority": 0
+                }
+            }
+        },
+        "Hero Angel Missile": {
+            "baseUnit": "_CMissile"
+        },
+        "Hero Healer": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "selectionPriority": 2,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 25,
+                    "regeneration": 0.5,
+                    "regenerationDelay": 5
+                },
+                "mana": {
+                    "maxMana": 91,
+                    "startMana": 91,
+                    "regeneration": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Hero Angel StandardRange"
+                ],
+                "abilityList": [
+                    "Hero Healer MassHeal"
+                ]
+            },
+            "healthBar": {
+                "type": 8,
+                "showWhenFull": true
+            },
+            "dependentBehaviors": [
+                "Hero Damage Buff",
+                "Hero Mana Buff",
+                "Hero Health Buff"
+            ]
+        },
+        "Hero Hercules": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "selectionPriority": 2,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 5,
+                    "regeneration": 0.5,
+                    "regenerationDelay": 5
+                },
+                "mana": {
+                    "maxMana": 91,
+                    "startMana": 91,
+                    "regeneration": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Hero Hercules StardardMelee"
+                ],
+                "abilityList": [
+                    "Hero Hercules Uppercut"
+                ]
+            },
+            "healthBar": {
+                "type": 8,
+                "showWhenFull": true
+            },
+            "dependentBehaviors": [
+                "Hero Damage Buff",
+                "Hero Mana Buff",
+                "Hero Health Buff"
+            ]
+        },
+        "Hero Lava": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "selectionPriority": 2,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 25,
+                    "regeneration": 0.5,
+                    "regenerationDelay": 5
+                },
+                "mana": {
+                    "maxMana": 91,
+                    "startMana": 91,
+                    "regeneration": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Hero Lava StardardMelee"
+                ],
+                "abilityList": [
+                    "Hero Lava SuperNova"
+                ]
+            },
+            "healthBar": {
+                "type": 8,
+                "showWhenFull": true
+            },
+            "dependentBehaviors": [
+                "Hero Damage Buff",
+                "Hero Mana Buff",
+                "Hero Health Buff"
+            ]
+        },
+        "Hero Tank": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "selectionPriority": 2,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 5,
+                    "regeneration": 0.5,
+                    "regenerationDelay": 5
+                },
+                "mana": {
+                    "maxMana": 91,
+                    "startMana": 91,
+                    "regeneration": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Hero Tree StardardMelee"
+                ],
+                "abilityList": [
+                    "Hero Tank GroundSmash"
+                ]
+            },
+            "healthBar": {
+                "type": 8,
+                "showWhenFull": true
+            },
+            "dependentBehaviors": [
+                "Hero Damage Buff",
+                "Hero Mana Buff",
+                "Hero Health Buff"
+            ]
+        },
+        "Hero Wizard": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "selectionPriority": 2,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 25,
+                    "regeneration": 0.5,
+                    "regenerationDelay": 5
+                },
+                "mana": {
+                    "maxMana": 91,
+                    "startMana": 91,
+                    "regeneration": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Hero Wizard StandardRange"
+                ],
+                "abilityList": [
+                    "Hero Wizard Skybeam"
+                ]
+            },
+            "healthBar": {
+                "type": 8,
+                "showWhenFull": true
+            },
+            "dependentBehaviors": [
+                "Hero Damage Buff",
+                "Hero Mana Buff",
+                "Hero Health Buff"
+            ]
+        },
+        "Hero Wizard AbilityIndicator": {
+            "components": {
+                "unitStats": {
+                    "radius": 0,
+                    "immortal": true,
+                    "ground": false,
+                    "selectable": false,
+                    "targetPriority": 0,
+                    "selectionPriority": -1,
+                    "ignoreCollision": true,
+                    "ignorePathing": true
+                },
+                "movement": {
+                    "moveSpeed": 2.5
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 50,
+                        "leashResetRadius": 50
+                    }
+                }
+            },
+            "references": {
+                "behaviorList": [
+                    "Standard HelperTag"
+                ]
+            },
+            "displayName": "data/GameData/unit/_StandardHelper/display_name"
+        },
+        "Hero Wizard Missile": {
+            "baseUnit": "_CMissile"
+        },
+        "Player Troop Archer": {
+            "components": {
+                "unitStats": {
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 5
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard RangedUnit Weapon"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 2": {
+            "components": {
+                "unitStats": {
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 5
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard RangedUnit Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 3": {
+            "components": {
+                "unitStats": {
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 7
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard RangedUnit Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 4": {
+            "components": {
+                "unitStats": {
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 7
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard RangedUnit Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer": {
+            "components": {
+                "unitStats": {
+                    "selectable": true,
+                    "targetPriority": 9,
+                    "selectionPriority": 1,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 1
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "turning": {
+                    "turningSpeed": 900
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1,
+                        "forceRescan": {
+                            "period": 0.5
+                        }
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Player Troop Healer Weapon"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 2": {
+            "components": {
+                "unitStats": {
+                    "selectable": true,
+                    "targetPriority": 9,
+                    "selectionPriority": 1,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 1
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "turning": {
+                    "turningSpeed": 900
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1,
+                        "forceRescan": {
+                            "period": 0.5
+                        }
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Player Troop Healer Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 3": {
+            "components": {
+                "unitStats": {
+                    "selectable": true,
+                    "targetPriority": 9,
+                    "selectionPriority": 1,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 2
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "turning": {
+                    "turningSpeed": 900
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1,
+                        "forceRescan": {
+                            "period": 0.5
+                        }
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Player Troop Healer Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 4": {
+            "components": {
+                "unitStats": {
+                    "selectable": true,
+                    "targetPriority": 9,
+                    "selectionPriority": 1,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 2
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "turning": {
+                    "turningSpeed": 900
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1,
+                        "forceRescan": {
+                            "period": 0.5
+                        }
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Player Troop Healer Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer Missile": {
+            "baseUnit": "_CMissile"
+        },
+        "Player Troop Swordsman": {
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 8
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                },
+                "unitValue": {
+                    "goldCost": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard MeleeUnit Weapon"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 2": {
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 8
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                },
+                "unitValue": {
+                    "goldCost": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard MeleeUnit Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 3": {
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 10
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                },
+                "unitValue": {
+                    "goldCost": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard MeleeUnit Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 4": {
+            "components": {
+                "unitStats": {
+                    "targetPriority": 6,
+                    "ignorePathing": true
+                },
+                "health": {
+                    "maxHealth": 10
+                },
+                "movement": {
+                    "moveSpeed": 2
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 6,
+                        "leashResetRadius": 1
+                    }
+                },
+                "unitValue": {
+                    "goldCost": 1
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Standard MeleeUnit Weapon"
+                ],
+                "behaviorList": [
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff",
+                    "Troop LevelUp Buff"
+                ],
+                "tagList": [
+                    {
+                        "name": "Troops",
+                        "count": 1
+                    }
+                ]
+            }
+        }
+    }
+}

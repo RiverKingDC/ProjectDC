@@ -1,8 +1,15 @@
 {
     "play": {
         "resolution": {
-            "width": 1280,
-            "height": 720
-        }
+            "width": 720,
+            "height": 1280
+        },
+        "levelName": "Level1",
+        "mapSaveData": [
+            {
+                "key": "",
+                "save": "{\"heroIndex\":1,\"unlockedLevel\":1,\"currentLvl\":1,\"upgrade1h\":1,\"upgrade1m\":1,\"upgrade1s\":1,\"upgrade1a\":1,\"upgrade2h\":1,\"upgrade2m\":1,\"upgrade2s\":1,\"upgrade2a\":1,\"upgrade3h\":1,\"upgrade3m\":1,\"upgrade3s\":1,\"upgrade3a\":1,\"upgrade4h\":1,\"upgrade4m\":1,\"upgrade4s\":1,\"upgrade4a\":1,\"upgrade5h\":1,\"upgrade5m\":1,\"upgrade5s\":1,\"upgrade5a\":1,\"healthlvl\":1,\"manalvl\":1,\"attacklvl\":1,\"abilitylvl\":1,\"swordsmanLvl\":1,\"archerLvl\":1,\"healerLvl\":1,\"Gold\":0,\"Level1Score\":0}"
+            }
+        ]
     }
 }

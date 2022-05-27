@@ -1,0 +1,67 @@
+{
+    "behaviors": {
+        "Hero Ability Buff": {
+            "modifiers": {
+                "weaponDamageModifier": {
+                    "unscaled": 0,
+                    "additiveFactor": 0,
+                    "multiplierFactor": 0
+                },
+                "abilityDamageModifier": {
+                    "multiplierFactor": 0.1
+                }
+            }
+        },
+        "Hero Damage Buff": {
+            "modifiers": {
+                "weaponDamageModifier": {
+                    "unscaled": 1,
+                    "additiveFactor": 0,
+                    "multiplierFactor": 0.1
+                },
+                "abilityDamageModifier": {
+                    "multiplierFactor": 0
+                }
+            }
+        },
+        "Hero Health Buff": {
+            "modifiers": {
+                "maxHealthModifier": {
+                    "scaled": 0,
+                    "additiveFactor": 0,
+                    "multiplierFactor": 0.1
+                },
+                "healthRegenerationModifier": {
+                    "scaled": 0.5
+                }
+            }
+        },
+        "Hero Mana Buff": {
+            "modifiers": {
+                "maxManaModifier": {
+                    "scaled": 0,
+                    "additiveFactor": 0,
+                    "multiplierFactor": 0.1
+                },
+                "manaRegenerationModifier": {
+                    "scaled": 0.5
+                }
+            }
+        },
+        "Troop LevelUp Buff": {
+            "modifiers": {
+                "maxHealthModifier": {
+                    "multiplierFactor": 0.1
+                },
+                "weaponDamageModifier": {
+                    "unscaled": 0,
+                    "additiveFactor": 0,
+                    "multiplierFactor": 0.1
+                },
+                "abilityDamageModifier": {
+                    "multiplierFactor": 0
+                }
+            }
+        }
+    }
+}

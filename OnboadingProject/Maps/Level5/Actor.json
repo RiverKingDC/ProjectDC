@@ -1,0 +1,3061 @@
+{
+    "actors": {
+        "Broken Structure": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "PropModel",
+                    "name": "forestworld_wood_tower"
+                },
+                "modelScale": 3
+            }
+        },
+        "Empty Section 1": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_chosen_radiance_burn"
+                }
+            }
+        },
+        "Empty Section 2": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_chosen_radiance_burn"
+                }
+            }
+        },
+        "Empty Section 3": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_chosen_radiance_burn"
+                }
+            }
+        },
+        "Enemy Boss Melee Action Actor": {
+            "actionActor": {
+                "effect": "Enemy Boss Mounted Skeleton Damage",
+                "launchModel": "Enemy Boss Melee SFX"
+            }
+        },
+        "Enemy Boss Melee SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "hero_deathknight_weapon_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Enemy Boss MountedSkeleton": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "deathknight_mounted"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Enemy Skeleton 1": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "deathknight_pet_skeletontroop"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Enemy Skeleton Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Enemy Skeleton Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Enemy Skeleton Archer": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "skeleton_archer"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Enemy Skeleton Melee Action Actor": {
+            "actionActor": {
+                "effect": "Enemy Skeleton Melee Damage",
+                "launchModel": "Enemy Skeleton Melee SFX"
+            }
+        },
+        "Enemy Skeleton Melee SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "centaurbarracks_weapon_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Evil Structure": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "PropModel",
+                    "name": "desertworld_castle_dark_column00"
+                },
+                "modelScale": 3
+            }
+        },
+        "Good Structure": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "PropModel",
+                    "name": "forestworld_castleset_wall03"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "modelScale": 3
+            }
+        },
+        "Hero Angel Missile": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_drow_mage_red_missile"
+                },
+                "modelScale": 0.5,
+                "hostSiteOperations": [
+                    "SOp FollowMovement Orientation"
+                ]
+            }
+        },
+        "Hero Healer": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "angelwings"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Healer MassHeal"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 10
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStop": {
+                                "ability": "Hero Healer MassHeal"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 10
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Angel StandardRange"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Angel StandardRange"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Hero Healer Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "walkAnimationSpeed": 1.7,
+                "modelScale": 1.25
+            }
+        },
+        "Hero Healer Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "angelwings_death_03"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Hero Healer MassHeal AOE Action Actor": {
+            "actionActor": {
+                "effect": "Hero Healer MassHeal AOE",
+                "launchModel": "Hero Healer MassHeal AOE Launch Model",
+                "launchModelDetached": true,
+                "impactModel": "Hero Healer MassHeal AOE Impact Model",
+                "impactModelDetached": true,
+                "additionalModels": [
+                    {
+                        "launchModel": "Hero Healer MassHeal Launch SFX",
+                        "impactModel": "Hero Healer MassHeal Impact SFX"
+                    }
+                ]
+            }
+        },
+        "Hero Healer MassHeal AOE Impact Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_tower_lighthouse_heal_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            },
+                            {
+                                "createTimer": {
+                                    "name": "duration",
+                                    "duration": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "onTimer": {
+                                "name": "duration"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "hostSiteOperations": [
+                    "Hero Healer MassHeal AOE SOp"
+                ]
+            }
+        },
+        "Hero Healer MassHeal AOE Launch Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_tower_lighthouse_heal_launch"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            },
+                            {
+                                "createTimer": {
+                                    "name": "duration",
+                                    "duration": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "onTimer": {
+                                "name": "duration"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "hostSiteOperations": [
+                    "Hero Healer MassHeal AOE SOp"
+                ],
+                "modelScale": 5
+            }
+        },
+        "Hero Healer MassHeal AOE SOp": {
+            "siteOperation": {
+                "rotate": {
+                    "y": 0
+                }
+            }
+        },
+        "Hero Healer MassHeal Impact SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "healing_v1"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Healer MassHeal Launch SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "tower_potiondealer_healingbrew_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Healer Standard ImpactSFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "drow_ranger_missile_hit"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Healer Standard Launch SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "drow_ranger_missile_launch"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Healer Weapon Action Actor": {
+            "actionActor": {
+                "effect": "Hero Angel StandardLaunch",
+                "launchModel": "Hero Healer Standard Launch SFX",
+                "impactModel": "Hero Healer Standard ImpactSFX"
+            }
+        },
+        "Hero Hercules": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "hercules"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Hercules Uppercut"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 17
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStop": {
+                                "ability": "Hero Hercules Uppercut"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 17
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Hero Hercules Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "walkAnimationSpeed": 1.7,
+                "modelScale": 1.25
+            }
+        },
+        "Hero Hercules Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "rex_death_a_worriors_end"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Hero Hercules Uppercut AOE Action Actor": {
+            "actionActor": {
+                "effect": "Hero Hercules Uppercut AOE",
+                "launchModel": "Hero Hercules Uppercut AOE Launch Model",
+                "launchModelDetached": true,
+                "impactModel": "Hero Hercules Uppercut AOE Impact",
+                "impactModelDetached": false,
+                "additionalModels": [
+                    {
+                        "launchModel": "Hero Hercules Uppercut Launch SFX",
+                        "impactModel": "Hero Hercules Uppercut Impact SFX"
+                    }
+                ]
+            }
+        },
+        "Hero Hercules Uppercut AOE Impact": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_status_mark_impact"
+                },
+                "modelScale": 0.5
+            }
+        },
+        "Hero Hercules Uppercut AOE Launch Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_boss_thunderbird_wingbuffet_missile"
+                },
+                "hostSiteOperations": [
+                    "Hero Hercules Uppercut AOE SOp"
+                ],
+                "modelScale": 1
+            }
+        },
+        "Hero Hercules Uppercut AOE SOp": {
+            "siteOperation": {
+                "offset": {
+                    "x": 0,
+                    "z": 0.5,
+                    "orientation": 1
+                }
+            }
+        },
+        "Hero Hercules Uppercut Impact SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "hercules_heroic_launch"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Hercules Uppercut Launch SFX": {
+            "parent": "_SFX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "hercules_heaveho_launch"
+                }
+            }
+        },
+        "Hero Hercules Weapon Action Actor": {
+            "actionActor": {
+                "effect": "Hero Hercules StandardDamage",
+                "launchModel": "Hero Hercules Weapon SFX"
+            }
+        },
+        "Hero Hercules Weapon SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "hercules_weapon_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Lava": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "lavaooze_barracks_troops_rank1"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Tank GroundSmash"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimationWithDuration": {
+                                    "clipId": 13,
+                                    "clipDuration": 1.75,
+                                    "useRealTimer": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Lava SuperNova"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStop": {
+                                "ability": "Hero Lava SuperNova"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Lava StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Lava StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Hero Lava Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "walkAnimationSpeed": 1.7,
+                "modelScale": 1.25
+            }
+        },
+        "Hero Lava Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "lavaooze_death_02"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Hero Lava SuperNova AOE Action Actor": {
+            "actionActor": {
+                "effect": "Hero Lava SuperNova AOE",
+                "launchModel": "Hero Lava SuperNova AOE Launch Model",
+                "launchModelDetached": true,
+                "impactModel": "Hero Lava SuperNova AOE Impact Model",
+                "impactModelDetached": true,
+                "additionalModels": [
+                    {
+                        "launchModel": "Hero Lava SuperNova Launch SFX",
+                        "impactModel": "Hero Lava SuperNova Impact SFX"
+                    }
+                ]
+            }
+        },
+        "Hero Lava SuperNova AOE Impact Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_lavaooze_death_explode"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            },
+                            {
+                                "createTimer": {
+                                    "name": "duration",
+                                    "duration": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "onTimer": {
+                                "name": "duration"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "hostSiteOperations": [
+                    "Hero Lava SuperNova AOE SOp"
+                ],
+                "modelScale": 6
+            }
+        },
+        "Hero Lava SuperNova AOE Launch Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_lavaooze_friendlyfire_lava_shield"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            },
+                            {
+                                "createTimer": {
+                                    "name": "duration",
+                                    "duration": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "onTimer": {
+                                "name": "duration"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "hostSiteOperations": [
+                    "Hero Lava SuperNova AOE SOp"
+                ]
+            }
+        },
+        "Hero Lava SuperNova AOE SOp": {
+            "siteOperation": {
+                "rotate": {
+                    "y": 0
+                }
+            }
+        },
+        "Hero Lava SuperNova Impact SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "explosion"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Lava SuperNova Launch SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "lavaooze_upgrade_04"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Lava Weapon Action Actor": {
+            "actionActor": {
+                "effect": "Hero Lava StandardDamage",
+                "launchModel": "Hero Lava Weapon SFX"
+            }
+        },
+        "Hero Lava Weapon SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "hercules_heaveho_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Tank": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "fantasy_hero_ancienttree"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 10
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 10
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Tank GroundSmash"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 4
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStop": {
+                                "ability": "Hero Tank GroundSmash"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 4
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Hero Tank Death SFX"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Tree StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Tree StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "walkAnimationSpeed": 1.25,
+                "modelScale": 1.25
+            }
+        },
+        "Hero Tank Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "ancienttree_death_01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Hero Tree GroundSmash AOE Action Actor": {
+            "actionActor": {
+                "effect": "Hero Tree GroundSmash AOE",
+                "launchModel": "Hero Tree GroundSmash AOE Launch Model",
+                "launchModelDetached": true,
+                "impactModel": "Hero Tree GroundSmash AOE Impact",
+                "impactModelDetached": false,
+                "additionalModels": [
+                    {
+                        "launchModel": "Hero Tree Groundsmash Launch SFX",
+                        "impactModel": "Hero Tree Groundsmash Impact SFX"
+                    }
+                ]
+            }
+        },
+        "Hero Tree GroundSmash AOE Impact": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_ship_normal_impact_small"
+                },
+                "modelScale": 1.5
+            }
+        },
+        "Hero Tree GroundSmash AOE Launch Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_chosen_smite_impact_aoe"
+                },
+                "modelScale": 3.5
+            }
+        },
+        "Hero Tree GroundSmash AOE SOp": {
+            "siteOperation": {
+                "rotate": {
+                    "y": 0
+                }
+            }
+        },
+        "Hero Tree Groundsmash Impact SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "surfer_quake_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Tree Groundsmash Launch SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "hammer_smash"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Tree Weapon Action Actor": {
+            "actionActor": {
+                "effect": "Hero Tree StandardDamage",
+                "launchModel": "Hero Tree Weapon SFX"
+            }
+        },
+        "Hero Tree Weapon SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "golem_weapon_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Wizard": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "foreseer"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Hercules StardardMelee"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStart": {
+                                "ability": "Hero Wizard Skybeam"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 10
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitAbilityStop": {
+                                "ability": "Hero Wizard Skybeam"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 10
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Hero Wizard StandardRange"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Hero Wizard StandardRange"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Hero Wizard Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "walkAnimationSpeed": 1.7,
+                "modelScale": 1.25
+            }
+        },
+        "Hero Wizard AbilityIndicator": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_whelp_purple_missile"
+                },
+                "modelScale": 2
+            }
+        },
+        "Hero Wizard Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "foreseer_death_01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Hero Wizard Missile": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_drow_mage_black_missile"
+                },
+                "modelScale": 0.5,
+                "hostSiteOperations": [
+                    "SOp FollowMovement Orientation"
+                ]
+            }
+        },
+        "Hero Wizard Skybeam  AOE SOp": {
+            "siteOperation": {
+                "offset": {
+                    "orientation": 3
+                }
+            }
+        },
+        "Hero Wizard Skybeam AOE Action Actor": {
+            "actionActor": {
+                "effect": "Hero Wizard Skybeam  AOE",
+                "launchModel": "Hero Wizard Skybeam AOE Launch Model",
+                "launchModelDetached": true,
+                "impactModel": "Hero Wizard Skybeam AOE Impact",
+                "impactModelDetached": false,
+                "additionalModels": [
+                    {
+                        "launchModel": "Hero Wizard Skybeam Launch SFX",
+                        "impactModel": "Hero Wizard Skybeam Impact SFX"
+                    }
+                ]
+            }
+        },
+        "Hero Wizard Skybeam AOE Impact": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_goblin_sapper_impact_aoe_purple"
+                },
+                "modelScale": 1.5
+            }
+        },
+        "Hero Wizard Skybeam AOE Launch Model": {
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_whelp_purple_impact"
+                },
+                "modelScale": 1.5
+            }
+        },
+        "Hero Wizard Skybeam AOE SOp Location": {
+            "siteOperation": {
+                "offset": {}
+            }
+        },
+        "Hero Wizard Skybeam Impact SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "goblin_sapper_death_explosion_v2"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Wizard Skybeam Launch SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "sfx_foreseer_weapon_launch"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Wizard Weapon Action Actor": {
+            "actionActor": {
+                "effect": "Hero Wizard StandardLaunch",
+                "launchModel": "Hero Wizard Weapon Launch SFX",
+                "impactModel": "Hero Wizard Weapon ImpactSFX"
+            }
+        },
+        "Hero Wizard Weapon ImpactSFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "hercules_crushingblow_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Hero Wizard Weapon Launch SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "sfx_foreseer_weapon_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Player Troop Archer": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "arrowtower_unit_rank01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 2": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "arrowtower_unit_rank02"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 3": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "arrowtower_unit_rank04"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 4": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "arrowtower_unit_rank05"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "lighthouse_unit_rank01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 2": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "lighthouse_unit_rank02"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 3": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "lighthouse_unit_rank04"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 4": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "lighthouse_unit_rank05"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Healer Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer Action Actor": {
+            "actionActor": {
+                "effect": "Player Troop Healer Heal Launch",
+                "launchModel": "Player Troop Healer Launch SFX",
+                "impactModel": "Player Troop Healer Impact SFX"
+            }
+        },
+        "Player Troop Healer Impact SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "tower_lighthouse_heal"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Player Troop Healer Launch SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "tower_lighthouse_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Player Troop Healer Missile": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_drow_mage_white_missile"
+                },
+                "modelScale": 0.5,
+                "hostSiteOperations": [
+                    "SOp FollowMovement Orientation"
+                ]
+            }
+        },
+        "Player Troop Swordsman": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "barracks_troop_rank01"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 2": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "barracks_troop_rank02"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 3": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "barracks_troop_rank03"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 4": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "barracks_troop_rank03_armored"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Standard MeleeUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman Action Actor": {
+            "actionActor": {
+                "effect": "Player Troop Swordsman Damage",
+                "launchModel": "Player Troop Swordsman SFX"
+            }
+        },
+        "Player Troop Swordsman SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "goblinchef_weapon_impact"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Standard Ranged Launch SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "Arrow_launch"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        },
+        "Standard RangedUnit Action Actor": {
+            "actionActor": {
+                "effect": "Standard RangedUnit Weapon Launch",
+                "launchModel": "Standard Ranged Launch SFX",
+                "impactModel": "Standard RangedUnit Impact Action Actor"
+            }
+        },
+        "Standard RangedUnit Impact Action Actor": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "arrow_hit_v1"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "selectionScale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "scaleMultiplier": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        }
+    }
+}

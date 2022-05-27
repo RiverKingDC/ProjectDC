@@ -1,0 +1,86 @@
+{
+    "settings": {
+        "registryDependencies": [
+            {
+                "identifier": "core",
+                "version": "^1.0.0"
+            }
+        ]
+    },
+    "triggerSettings": {
+        "usedUnits": [
+            "Hero Hercules",
+            "Broken Structure",
+            "Enemy Skeleton 1",
+            "Player Troop Archer",
+            "Player Troop Healer",
+            "Player Troop Swordsman",
+            "Hero Healer",
+            "Hero Lava",
+            "Hero Tank",
+            "Hero Wizard",
+            "Player Troop Archer 2",
+            "Player Troop Archer 3",
+            "Player Troop Archer 4",
+            "Player Troop Healer 2",
+            "Player Troop Healer 3",
+            "Player Troop Healer 4",
+            "Player Troop Swordsman 2",
+            "Player Troop Swordsman 3",
+            "Player Troop Swordsman 4",
+            "Enemy Skeleton Archer",
+            "Enemy Boss MountedSkeleton",
+            "Hero Wizard AbilityIndicator"
+        ],
+        "usedBehaviors": [
+            "Hero Damage Buff",
+            "Hero Mana Buff",
+            "Hero Health Buff"
+        ],
+        "usedSpriteAssets": [
+            "spell_consecrate",
+            "spell_walloffire",
+            "spell_judgement",
+            "hero_hercules",
+            "pocketquest_icon_rune_background",
+            "cartoon_icon_mergewar_panel5_brown",
+            "icon_att_health",
+            "talent_mana_regen",
+            "icon_sword",
+            "cartoon_icon_mergewar_plus4",
+            "golden_pass_overview",
+            "icon_enhance_arrowtower_extraarcher",
+            "icon_ingame_lighthouse_unit_rank03",
+            "icon_enhance_centaurarcher_warhall",
+            "icon_ingame_hero_hercules",
+            "hero_ancienttree",
+            "hero_angelwings",
+            "hero_foreseer",
+            "btn_unit_wildsky_lavaooze_barracks_troops_rank1",
+            "tower_lavaooze",
+            "icon_ingame_hero_ancienttree",
+            "icon_ingame_hero_angelwings",
+            "icon_ingame_hero_foreseer",
+            "icon_ingame_towerslot_lavaooze",
+            "btn_unit_wildsky_barracks_troop_rank01",
+            "btn_unit_wildsky_barracks_troop_rank02",
+            "btn_unit_wildsky_barracks_troop_rank03",
+            "btn_unit_wildsky_barracks_troop_rank03_armored",
+            "btn_unit_wildsky_arrowtower_unit_rank01",
+            "btn_unit_wildsky_arrowtower_unit_rank02",
+            "btn_unit_wildsky_arrowtower_unit_rank04",
+            "btn_unit_wildsky_arrowtower_unit_rank05",
+            "btn_unit_wildsky_lighthouse_unit_rank01",
+            "btn_unit_wildsky_lighthouse_unit_rank02",
+            "btn_unit_wildsky_lighthouse_unit_rank04",
+            "btn_unit_wildsky_lighthouse_unit_rank05",
+            "fantasy_icon_victory1",
+            "fantasy_icon_defeat1",
+            "icon_spell_consecrate",
+            "icon_spell_healing_and_charge",
+            "icon_spell_typhoon",
+            "icon_spell_giftofkinahau",
+            "icon_spell_judgement"
+        ]
+    }
+}

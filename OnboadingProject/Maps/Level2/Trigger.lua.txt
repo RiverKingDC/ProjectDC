@@ -1,0 +1,570 @@
+local json = require("json")
+local core = require("core")
+
+--  variables
+local hero_Hercules = "Hero Hercules"
+local hero_Tree = "Hero Tank"
+local hero_Angel = "Hero Healer"
+local hero_Foreseer = "Hero Wizard"
+local hero_Lava = "Hero Lava"
+local hero_Selected = nil
+local hero_Index = DCEI.Save.Get("heroIndex")
+local hero_unit = nil
+local unit = {} 
+local completedLvls = 0
+local currentLvl = 2
+local inSectionChange = false
+local levelScore = 0
+--Abilities
+local hercules_ability = "Hero Hercules Uppercut"
+local tree_ability = "Hero Tank GroundSmash"
+local angel_ability = "Hero Healer MassHeal"
+local forseer_ability = "Hero Wizard Skybeam"
+local lava_ability = "Hero Lava SuperNova"
+local current_ability = nil
+local ability_indicator = nil
+local inLongAbility = false
+--
+--unit weapons
+local healer_weapon = "Player Troop Healer Weapon"
+--
+local group = DCEI.FindUnitsByTeamId(-1)
+local healthlvl = 0
+local manalvl = 0
+local attacklvl = 0
+local abilitylvl = 0
+local enemywave = {}
+local allywave = {}
+local allywavespawned = {}
+local currentsection = 1
+local cameraY =16
+local selectedTroop = 0
+local isBattling = false
+--local positiontype = {}
+local section1 = {}
+local section2 = {}
+local section3 = {}
+local role = ""
+
+local swordsmanLvl = DCEI.Save.Get("swordsmanLvl")
+local archerLvl = DCEI.Save.Get("archerLvl")
+local healerLvl = DCEI.Save.Get("healerLvl")
+DCEI.SetEnabledCameraClamp(false)
+
+
+--UI
+local root = DCEI.GetUiRootFrame()
+--inGameUI
+local gameUI = DCEI.CreateFrameFromXml(root, "GameUI")
+local swordsman_button = DCEI.GetChildFrameById(gameUI, "swordsmanButton")
+local archer_button = DCEI.GetChildFrameById(gameUI, "archerButton")
+local healer_button = DCEI.GetChildFrameById(gameUI, "healerButton")
+local fight_button = DCEI.GetChildFrameById(gameUI, "fightButton")
+local ability_button = DCEI.GetChildFrameById(gameUI, "abilityButton")
+local gameState = DCEI.GetFrameState(gameUI)
+gameState.Morale = 75
+DCEI.SetFrameActive(gameUI, true)
+gameState.Battling = false
+--Upgrade Menu Data
+local upgrades_table = {{1,1,1,1},{1,1,1,1},{1,1,1,1},{1,1,1,1},{1,1,1,1}}
+-- Victory Screen
+local endscreen = DCEI.CreateFrameFromXml(root, "EndScreen")
+local endbutton = DCEI.GetChildFrameById(endscreen, "endButton")
+local endStates = DCEI.GetFrameState(endscreen)
+DCEI.SetFrameActive(endscreen, false)
+--
+
+
+function OnMapStart()
+    ConvertSpawnPoints()
+    hero_Index = DCEI.Save.Get("heroIndex")
+    if hero_Index == 1 then
+       hero_Selected = hero_Hercules
+       current_ability = hercules_ability
+       gameState.abilityImage = "icon_spell_judgement"
+       gameState.abilityCost = 15
+     end
+     if hero_Index == 2 then
+        hero_Selected = hero_Tree
+        current_ability = tree_ability
+        gameState.abilityImage = "icon_spell_consecrate" 
+        gameState.abilityCost = 30
+     end
+     if hero_Index == 3 then
+        hero_Selected = hero_Angel
+        current_ability = angel_ability
+        gameState.abilityImage = "icon_spell_healing_and_charge"
+        gameState.abilityCost = 45
+     end
+     if hero_Index == 4 then
+        hero_Selected = hero_Foreseer
+        current_ability = forseer_ability
+        gameState.abilityImage = "icon_spell_typhoon"
+        gameState.abilityCost = 60
+     end
+     if hero_Index == 5 then
+        hero_Selected = hero_Lava
+        current_ability = lava_ability
+        gameState.abilityImage = "icon_spell_giftofkinahau"
+        gameState.abilityCost = 75
+     end
+
+     healthlvl = DCEI.Save.Get("healthlvl")
+     manalvl = DCEI.Save.Get("manalvl")
+     attacklvl = DCEI.Save.Get("attacklvl")
+     abilitylvl = DCEI.Save.Get("abilitylvl")
+
+     hero_unit = DCEI.CreateUnit(1,1, hero_Selected, 9.5,10.5,0,-1)
+     DCEI.Move(hero_unit, 9.5,cameraY-2)
+     DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Health Buff", healthlvl)
+     DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Mana Buff", manalvl)
+     DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Damage Buff", attacklvl)
+     --DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Damage Buff", abilitylvl)
+     
+     
+     
+     DCEI.ShowUnitStatusUi(2, hero_unit)
+     
+     
+     DCEI.TriggerAddTimerEventPeriodicIndefinite(PerSecondUpdate, 0.1, true, true)
+end
+
+
+
+
+
+function ConvertSpawnPoints()
+    local spawners1 = DCEI.FindUnits("Empty Section 1")
+
+    for i, v in pairs(spawners1) do
+        local pos = DCEI.GetUnitPosition2D(v)
+        local role = DCEI.GetUnitTeamId(v)
+        local positionrole = {pos, role}
+        table.insert(section1, positionrole)
+        DCEI.RemoveUnitSync(v)
+    end
+    local spawners2 = DCEI.FindUnits("Empty Section 2")
+    for i, v in pairs(spawners2) do
+        local pos = DCEI.GetUnitPosition2D(v)
+        local role = DCEI.GetUnitTeamId(v)
+        local positionrole = {pos, role}
+        table.insert(section2, positionrole)       
+        DCEI.RemoveUnitSync(v)
+    end
+    local spawners3 = DCEI.FindUnits("Empty Section 3")
+    for i, v in pairs(spawners3) do
+        local pos = DCEI.GetUnitPosition2D(v)
+        local role = DCEI.GetUnitTeamId(v)
+        local positionrole = {pos, role}
+        table.insert(section3, positionrole)
+        DCEI.RemoveUnitSync(v)
+    end
+    local team = DCEI.FindUnitsByTeamId(1)
+    for i, v in pairs(team) do
+        if DCEI.GetUnitType(v) ~= "Empty Section 1" and DCEI.GetUnitType(v) ~= "Empty Section 2" and DCEI.GetUnitType(v) ~= "Empty Section 3" then
+            local pos = DCEI.GetUnitPosition2D(v)
+            local role = 2
+            local positionrole = {pos, role}
+            table.insert(section1, positionrole)
+            DCEI.RemoveUnitSync(v)
+        end
+    end
+    SpawnEnemies()
+end
+
+function SpawnEnemies()
+    
+    if currentsection == 1 then
+        for i, v in pairs(section1) do
+            if v[2] == 1 then
+                role = "Enemy Skeleton 1"
+            else
+                role = "Enemy Skeleton Archer"
+            end
+            local newUnit = DCEI.CreateUnit(1,-1, role,9.5,(cameraY+8),0,-1)
+            table.insert(enemywave, newUnit)
+            DCEI.Move(newUnit, v[1].x,v[1].y)
+            DCEI.Wait(0.1, true)
+        end
+    end
+    if currentsection == 2 then
+        for i, v in pairs(section2) do
+            
+            local newUnit = DCEI.CreateUnit(1,-1, role,9.5,(cameraY+8),0,-1)
+            table.insert(enemywave, newUnit)
+            DCEI.Move(newUnit, v[1].x,v[1].y)
+            DCEI.Wait(0.1, true)
+        end
+    end
+    if currentsection == 3 then
+        for i, v in pairs(section3) do
+            if v[2] == 1 then
+                role = "Enemy Skeleton 1"
+            end
+                if v[2] == -1 then
+                role = "Enemy Skeleton Archer"
+            end
+            if v[2] == 2 then
+                role = "Enemy Boss MountedSkeleton"
+            end
+            local newUnit = DCEI.CreateUnit(1,-1, role,9.5,(cameraY+8),0,-1)
+            table.insert(enemywave, newUnit)
+            DCEI.Move(newUnit, v[1].x,v[1].y)
+            DCEI.Wait(0.1, true)
+        end
+    end
+
+end
+--Butons
+
+
+
+--spawn troops
+DCEI.SetOnClickCallback(
+    swordsman_button, 
+        function()
+            DCEI.PlaySound("ui_click_10", 0.5)
+            SpawnTroops(1)
+            gameState.Morale = gameState.Morale - 20
+        end
+    )
+    DCEI.SetOnClickCallback(
+        archer_button, 
+            function()
+                DCEI.PlaySound("ui_click_10", 0.5)
+                SpawnTroops(2)
+                gameState.Morale = gameState.Morale - 30
+            end
+        )
+    DCEI.SetOnClickCallback(
+    healer_button, 
+        function()
+            DCEI.PlaySound("ui_click_10", 0.5)
+            SpawnTroops(3)
+            gameState.Morale = gameState.Morale - 40
+        end
+    )
+
+    DCEI.SetOnClickCallback(
+    fight_button, 
+        function()
+            
+            DCEI.PlaySound("ui_click_10", 0.5)
+                       for i, v in pairs(enemywave) do
+                            DCEI.SetUnitTeamId(v, -1)
+                            end
+                            DCEI.AddUnitWeaponSync("Player Troop Healer", "Player Troop Healer Weapon")  
+                            for i, v in pairs(allywave) do
+                                DCEI.DisableUnitSelectionSync(v)
+                                DCEI.DeselectUnitSync(v)
+                                end
+                        isBattling = true
+                        gameState.Battling = true
+        end
+    )
+
+function SpawnTroops(troopNum)
+        if troopNum == 1 then
+            if swordsmanLvl == 1 then
+            selectedTroop = "Player Troop Swordsman"
+            end
+            if swordsmanLvl == 2 then
+                selectedTroop = "Player Troop Swordsman 2"
+                end
+                if swordsmanLvl == 3 then
+                    selectedTroop = "Player Troop Swordsman 3"
+                    end
+                    if swordsmanLvl == 4 then
+                        selectedTroop = "Player Troop Swordsman 4"
+                        end
+                        
+        end
+
+        if troopNum == 2 then
+            if archerLvl == 1 then
+            selectedTroop = "Player Troop Archer"
+        end
+        if archerLvl == 2 then
+            selectedTroop = "Player Troop Archer 2"
+        end
+        if archerLvl == 3 then
+            selectedTroop = "Player Troop Archer 3"
+        end
+        if archerLvl == 4 then
+            selectedTroop = "Player Troop Archer 4"
+        end
+        end
+
+        if troopNum == 3 then
+            if healerLvl== 1 then
+            selectedTroop = "Player Troop Healer"
+        end
+        if healerLvl == 2 then
+            selectedTroop = "Player Troop Healer 2"
+        end
+        if healerLvl == 3 then
+            selectedTroop = "Player Troop Healer 3"
+        end
+        if healerLvl == 4 then
+            selectedTroop = "Player Troop Healer 4"
+        end
+        end
+
+   local posY = ((cameraY-2)+DCEI.Random(-2, 2))
+   local posX = (9.5 + DCEI.Random(-0.5, 0.5))
+   DCEI.RemoveUnitWeaponSync("Player Troop Healer", "Player Troop Healer Weapon")  
+        for i = 1,3,1
+        do 
+            local int = (i/2) - 1 
+            local temp = DCEI.CreateUnit(1,1, selectedTroop, (9.5+DCEI.Random(-0.5, 0.5)) ,(cameraY-4),0,-1)
+            
+              
+            
+            table.insert(allywave, temp)
+            DCEI.Move(temp, posX + int, posY )
+            DCEI.Wait(0.1, true)
+        end
+    
+    
+    
+    
+end
+
+--Victory Screen
+DCEI.SetOnClickCallback(
+endbutton, 
+        function()
+            DCEI.PlaySound("ui_click_10", 0.5)
+            DCEI.PlayLevel("Maps/EntryMap", "EntryMap", nil, nil)
+        end
+    )
+--
+
+--Abilities
+DCEI.SetOnClickCallback(
+    ability_button, 
+        function()
+            DCEI.PlaySound("ui_click_10", 0.5)
+            if hero_Index == 4 then
+                if inLongAbility ==  false then
+                local hero_pos = DCEI.GetUnitPosition2D(hero_unit)
+                ability_indicator = DCEI.CreateUnit(1,1, "Hero Wizard AbilityIndicator", hero_pos.x, hero_pos.y,0,0)
+                inLongAbility = true
+                DCEI.LogMessage("start")
+                DCEI.TriggerAddTimerEventElapsed(
+                function()
+                DCEI.RemoveUnitSync(ability_indicator)
+                local ind_pos = DCEI.GetMousePosition2D()
+                DCEI.CastAbilityAtPosition(current_ability, hero_unit, ind_pos.x, ind_pos.y,true) 
+                DCEI.LogMessage(mouse_pos.x..","..mouse_pos.y)
+                inLongAbility = false
+                end,
+               5)
+
+                end
+            else
+                DCEI.CastAbilityAtUnit(current_ability, hero_unit, hero_unit,true) 
+            end
+        end
+    )
+
+
+
+
+
+function OnUnitDied()
+    local u = DCEI.TriggeringUnit
+    local Pos = DCEI.GetUnitPosition2D(u)
+    local name = DCEI.GetUnitType(u)
+    if name == "Good Structure" then
+      local  temp = DCEI.CreateUnit(1,1, "Broken Structure", Pos.x,Pos.y,0,-1)
+    end
+    if name == "Good Structure" then
+      local  temp = DCEI.CreateUnit(1,1, "Broken Structure", Pos.x,Pos.y,0,-1)
+    end
+
+    for i, v in pairs(enemywave) do
+        if v == u then
+            table.remove(enemywave,i)
+        end
+      
+    end   
+    for i, v in pairs(allywave) do
+        if v == u then
+            table.remove(allywave,i)
+        end
+    end   
+    if #enemywave == 0 and inSectionChange == false then
+        inSectionChange = true
+        DCEI.Wait(0.5, true)
+        SectionChange(true)
+        
+    end  
+    if #allywave == 0 and DCEI.UnitIsAlive(hero_unit) == false and inSectionChange == false  then
+        inSectionChange = true
+        DCEI.Wait(0.5, true)
+        SectionChange(false)
+        
+    end
+
+end
+
+function SectionChange(bool)
+
+    DCEI.DisableUnitSelectionSync(hero_unit)
+    DCEI.DeselectUnitSync(hero_unit)
+    
+    if bool == true then
+        if currentsection < 3 then
+            currentsection = currentsection + 1
+
+            if currentsection == 1 then
+                cameraY = 16
+                gameState.Morale = gameState.Morale +75
+                if DCEI.UnitIsAlive(hero_unit) == false then
+                    hero_unit = DCEI.CreateUnit(1,1, hero_Selected, 9.5,10.5,0,-1)
+                    DCEI.Move(hero_unit, 9.5,cameraY-2)
+                    DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Health Buff", healthlvl)
+                    DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Mana Buff", manalvl)
+                    DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Damage Buff", attacklvl)
+                    DCEI.ApplyBehaviorToSelf(hero_unit, "Hero Ability Buff", abilitylvl)  
+                    DCEI.ShowUnitStatusUi(2, hero_unit)
+                end
+            end
+            if currentsection == 2 then
+                cameraY = 32
+                gameState.Morale = gameState.Morale +50
+            end
+            if currentsection == 3 then
+                cameraY = 47
+                gameState.Morale = gameState.Morale +25
+            end
+            DCEI.Move(hero_unit, 9.5,cameraY)
+            
+            if bool == true then
+                for i, v in pairs(allywave) do
+            
+                    DCEI.Move(v, (9.5 + DCEI.Random(-2, 2)),((cameraY-1)+DCEI.Random(-1.5, 1.5)))
+                end   
+            else
+                for i, v in pairs(enemywave) do
+                        DCEI.SetUnitTeamId(v,1)
+                        DCEI.Move(v, (9.5 + DCEI.Random(-2, 2)),((cameraY+2)+DCEI.Random(-1.5, 1.5)))
+                end   
+            end
+            
+            DCEI.TriggerAddTimerEventElapsed(
+                function()
+                
+                    DCEI.SetCameraFocusWithGameTime(9.5, cameraY, 3, true)
+                DCEI.EnableUnitSelectionSync(hero_unit)
+                for i, v in pairs(allywave) do
+                    DCEI.EnableUnitSelectionSync(v)
+                    end
+               SpawnEnemies()
+               gameState.Battling = false
+               inSectionChange = false
+                end,
+                2
+            )
+        else
+            ClearUnits(bool)
+            DCEI.SetFrameActive(endscreen, true)
+            endStates.Victory = true
+            DCEI.PlaySound("awaken_sucessed", 0.75)
+            if currentLvl ==  DCEI.Save.Get("unlockedLevel") then
+                local goldvalue =  DCEI.Save.Get("Gold") + 50
+                DCEI.Save.Set("Gold",goldvalue)
+            local nextLvl = currentLvl +1
+            DCEI.Save.Set("unlockedLevel", nextLvl)
+            DCEI.Save.Set("currentLvl", nextLvl)
+            levelScore = 1
+            if gameState.Morale > 25 then
+            levelScore = 2
+            end
+            if gameState.Morale > 50 then
+            levelScore = 3
+            end
+            DCEI.Save.Set("Level"..currentLvl.."Score", levelScore)
+            end
+        end
+    else
+        if currentsection > 1 then
+            currentsection = currentsection - 1
+
+            if currentsection == 1 then
+                cameraY = 16
+                gameState.Morale = gameState.Morale +75
+            end
+            if currentsection == 2 then
+                cameraY = 32
+                gameState.Morale = gameState.Morale +50
+            end
+            if currentsection == 3 then
+                cameraY = 47
+                gameState.Morale = gameState.Morale +25
+            end
+            DCEI.Move(hero_unit, 16,cameraY)
+            
+            if bool == true then
+                for i, v in pairs(allywave) do
+                    DCEI.Move(v, (9.5 + DCEI.Random(-2, 2)),((cameraY-1)+DCEI.Random(-1.5, 1.5)))
+                end   
+            else
+                for i, v in pairs(enemywave) do
+                        DCEI.SetUnitTeamId(v,1)
+                    DCEI.Move(v, (9.5 + DCEI.Random(-2, 2)),((cameraY+2)+DCEI.Random(-1.5, 1.5)))
+                end   
+            end
+            
+            DCEI.TriggerAddTimerEventElapsed(
+                function()
+
+                
+                DCEI.SetCameraFocusWithGameTime(9.5, cameraY, 3, true)
+                DCEI.EnableUnitSelectionSync(hero_unit)
+               SpawnEnemies()
+               gameState.Battling = false
+               inSectionChange = false
+                end,
+                2
+            )
+        else
+            ClearUnits(bool)
+            DCEI.SetFrameActive(endscreen, true)
+            endStates.Victory = false          
+            DCEI.Save.Set("currentLvl", currentLvl)
+            DCEI.PlaySound("consecrate_impact", 0.75)
+        end
+    end
+    DCEI.Save.Commit()
+end
+    function ClearUnits(win)
+       if win then
+        for i, v in pairs(allywave) do
+            DCEI.RemoveUnitSync(v)
+        end  
+       else
+        for i, v in pairs(enemywave) do
+            DCEI.RemoveUnitSync(v)
+        end
+       end 
+        DCEI.RemoveUnitSync(hero_unit)
+    end
+
+
+
+
+function PerSecondUpdate()
+    gameState.currentMana = DCEI.GetMana(hero_unit) 
+   if inLongAbility then
+    local mouse_pos = DCEI.GetMousePosition2D()
+DCEI.Move(ability_indicator,mouse_pos.x, mouse_pos.y )
+   end
+ end
+
+
+-- INITIALIZE
+
+DCEI.TriggerAddTimerEventElapsed(OnMapStart, 0)
+DCEI.TriggerAddUnitDiedEvent(DCEI.UnitAny, OnUnitDied)

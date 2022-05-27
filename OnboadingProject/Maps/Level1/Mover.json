@@ -1,0 +1,11 @@
+{
+    "movers": {
+        "Hero Wizard Standard Mover": {
+            "guidance": {
+                "acceleration": 10,
+                "speed": 10,
+                "maxSpeed": 10
+            }
+        }
+    }
+}

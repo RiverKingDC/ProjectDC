@@ -1,0 +1,59 @@
+{
+    "abilities": {
+        "Hero Healer MassHeal": {
+            "effect": "Hero Healer MassHeal AOE",
+            "stats": {
+                "prepTime": 1,
+                "finishTime": 1
+            }
+        },
+        "Hero Hercules Uppercut": {
+            "abilityType": 2,
+            "effect": "Hero Hercules Uppercut AOE",
+            "stats": {
+                "prepTime": 0.25,
+                "finishTime": 1,
+                "period": 1
+            },
+            "cost": {
+                "mana": 15
+            },
+            "targetFilter": {
+                "player": 0,
+                "ally": 0
+            }
+        },
+        "Hero Lava SuperNova": {
+            "effect": "Hero Lava SuperNova AOE",
+            "stats": {
+                "prepTime": 1,
+                "finishTime": 1,
+                "range": 0
+            }
+        },
+        "Hero Tank GroundSmash": {
+            "effect": "Hero Tree GroundSmash AOE",
+            "stats": {
+                "prepTime": 0.75,
+                "finishTime": 1,
+                "period": 1
+            },
+            "cost": {
+                "mana": 60
+            },
+            "targetFilter": {
+                "player": 0,
+                "ally": 0
+            }
+        },
+        "Hero Wizard Skybeam": {
+            "abilityType": 1,
+            "effect": "Hero Wizard Skybeam  AOE",
+            "stats": {
+                "prepTime": 0.5,
+                "finishTime": 0.5,
+                "range": 15
+            }
+        }
+    }
+}

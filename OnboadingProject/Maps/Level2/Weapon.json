@@ -1,0 +1,109 @@
+{
+    "weapons": {
+        "Enemy Boss MountedSkeleton Weapon": {
+            "effectName": "Enemy Boss Mounted Skeleton Damage",
+            "stats": {
+                "preSwing": 0.5,
+                "backSwing": 0.5,
+                "period": 1,
+                "range": 0.25,
+                "scanRange": 3
+            },
+            "distanceExtendMode": 1,
+            "targetFilter": {
+                "ground": 1,
+                "invulerable": 2
+            }
+        },
+        "Enemy Skeleton Weapon": {
+            "parent": "_StandardMeleeWeapon",
+            "effectName": "Enemy Skeleton Melee Damage",
+            "stats": {
+                "scanRange": 16
+            }
+        },
+        "Hero Angel StandardRange": {
+            "parent": "_StandardRangedWeapon",
+            "effectName": "Hero Angel StandardLaunch"
+        },
+        "Hero Hercules StardardMelee": {
+            "parent": "_StandardMeleeWeapon",
+            "effectName": "Hero Hercules StandardDamage",
+            "stats": {
+                "preSwing": 0.25,
+                "backSwing": 0.25
+            }
+        },
+        "Hero Lava StardardMelee": {
+            "parent": "_StandardMeleeWeapon",
+            "effectName": "Hero Lava StandardDamage",
+            "stats": {
+                "preSwing": 1,
+                "backSwing": 0.5
+            }
+        },
+        "Hero Tree StardardMelee": {
+            "parent": "_StandardMeleeWeapon",
+            "effectName": "Hero Tree StandardDamage",
+            "stats": {
+                "preSwing": 1.5
+            }
+        },
+        "Hero Wizard StandardRange": {
+            "parent": "_StandardRangedWeapon",
+            "effectName": "Hero Wizard StandardLaunch",
+            "stats": {
+                "preSwing": 1
+            }
+        },
+        "Player Troop Healer Weapon": {
+            "template": false,
+            "effectName": "Player Troop Healer Heal Launch",
+            "independentTargetAcquisition": true,
+            "stats": {
+                "preSwing": 1,
+                "backSwing": 2,
+                "period": 1,
+                "range": 4,
+                "scanRange": 5,
+                "arc": 360
+            },
+            "distanceExtendMode": 1,
+            "targetFilter": {
+                "primarySortKeys": {
+                    "key": 9,
+                    "order": 1
+                },
+                "secondarySortKeys": {
+                    "key": 5
+                },
+                "player": 1,
+                "ally": 2,
+                "enemy": 2,
+                "neutral": 2,
+                "unit": 0,
+                "structure": 2,
+                "air": 2,
+                "ground": 0,
+                "stealth": 2,
+                "invulerable": 2
+            },
+            "disabled": false
+        },
+        "Player Troop Swordsman Weapon": {
+            "effectName": "Player Troop Swordsman Damage",
+            "stats": {
+                "preSwing": 0.5,
+                "backSwing": 0.5,
+                "period": 1,
+                "range": 0.25,
+                "scanRange": 3
+            },
+            "distanceExtendMode": 1,
+            "targetFilter": {
+                "ground": 1,
+                "invulerable": 2
+            }
+        }
+    }
+}

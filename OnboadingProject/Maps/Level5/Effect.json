@@ -1,0 +1,196 @@
+{
+    "effects": {
+        "Enemy Boss Mounted Skeleton Damage": {
+            "damage": {
+                "damageAmount": 3
+            }
+        },
+        "Enemy Skeleton Melee Damage": {
+            "damage": {
+                "damageAmount": 1
+            }
+        },
+        "Hero Angel StandardDamage": {
+            "damage": {
+                "damageAmount": 2
+            }
+        },
+        "Hero Angel StandardLaunch": {
+            "launchMissile": {
+                "targetType": 1,
+                "missileUnit": "Hero Angel Missile",
+                "effect": "Hero Angel StandardDamage",
+                "launchLocation": 7,
+                "impactLocation": 1,
+                "offsetStart": 7,
+                "offsetEnd": 1,
+                "mover": "Standard Guided Missile"
+            }
+        },
+        "Hero Healer MassHeal AOE": {
+            "areaSearch": {
+                "debugDraw": true,
+                "areaSearchType": {
+                    "circle": {
+                        "radius": 15
+                    }
+                },
+                "filter": {
+                    "player": 1,
+                    "enemy": 2
+                },
+                "effect": "Hero Healer MassHeal AOE Heal"
+            }
+        },
+        "Hero Healer MassHeal AOE Heal": {
+            "heal": {
+                "healAmount": 5
+            }
+        },
+        "Hero Hercules StandardDamage": {
+            "damage": {
+                "damageAmount": 1.5
+            }
+        },
+        "Hero Hercules Uppercut AOE": {
+            "areaSearch": {
+                "debugDraw": false,
+                "areaSearchType": {
+                    "circle": {
+                        "radius": 1
+                    }
+                },
+                "filter": {
+                    "player": 2,
+                    "ally": 2
+                },
+                "effect": "Hero Hercules Uppercut Damage",
+                "offset": {
+                    "forward": 0.5
+                }
+            }
+        },
+        "Hero Hercules Uppercut Damage": {
+            "damage": {
+                "damageAmount": 5
+            }
+        },
+        "Hero Lava StandardDamage": {
+            "damage": {
+                "damageAmount": 2.5
+            }
+        },
+        "Hero Lava SuperNova AOE": {
+            "areaSearch": {
+                "debugDraw": true,
+                "areaSearchType": {
+                    "circle": {
+                        "radius": 10
+                    }
+                },
+                "filter": {
+                    "player": 0,
+                    "ally": 2
+                },
+                "excludedTagNames": [
+                    "Troops"
+                ],
+                "effect": "Hero Lava SuperNova Damage"
+            }
+        },
+        "Hero Lava SuperNova Damage": {
+            "damage": {
+                "damageAmount": 50
+            }
+        },
+        "Hero Tree GroundSmash AOE": {
+            "areaSearch": {
+                "debugDraw": false,
+                "areaSearchType": {
+                    "circle": {
+                        "radius": 3.5
+                    }
+                },
+                "filter": {
+                    "player": 2,
+                    "ally": 2
+                },
+                "effect": "Hero Tree GroundSmash Damage"
+            }
+        },
+        "Hero Tree GroundSmash Damage": {
+            "damage": {
+                "damageAmount": 10
+            }
+        },
+        "Hero Tree StandardDamage": {
+            "damage": {
+                "damageAmount": 3
+            }
+        },
+        "Hero Wizard Skybeam  AOE": {
+            "areaSearch": {
+                "debugDraw": true,
+                "areaSearchType": {
+                    "circle": {
+                        "radius": 1
+                    }
+                },
+                "filter": {
+                    "player": 2,
+                    "ally": 2
+                },
+                "effect": "Hero Wizard Skybeam Damage",
+                "offset": {
+                    "forward": 0,
+                    "up": 0
+                }
+            }
+        },
+        "Hero Wizard Skybeam Damage": {
+            "damage": {
+                "damageAmount": 8
+            }
+        },
+        "Hero Wizard StandardDamage": {
+            "damage": {
+                "damageAmount": 2.5
+            }
+        },
+        "Hero Wizard StandardLaunch": {
+            "launchMissile": {
+                "targetType": 1,
+                "missileUnit": "Hero Wizard Missile",
+                "effect": "Hero Wizard StandardDamage",
+                "launchLocation": 7,
+                "impactLocation": 1,
+                "offsetStart": 7,
+                "offsetEnd": 1,
+                "mover": "Standard Guided Missile"
+            }
+        },
+        "Player Troop Healer Heal": {
+            "heal": {
+                "valueType": 1,
+                "healAmount": 1
+            }
+        },
+        "Player Troop Healer Heal Launch": {
+            "launchMissile": {
+                "targetType": 1,
+                "missileUnit": "Player Troop Healer Missile",
+                "effect": "Player Troop Healer Heal",
+                "launchLocation": 7,
+                "impactLocation": 1,
+                "offsetStart": 7,
+                "offsetEnd": 1,
+                "mover": "Standard Ballistic Missile"
+            }
+        },
+        "Player Troop Swordsman Damage": {
+            "damage": {
+                "damageAmount": 1
+            }
+        }
+    }
+}

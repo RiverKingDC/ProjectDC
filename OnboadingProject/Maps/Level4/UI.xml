@@ -1,0 +1,269 @@
+<UI>
+    <Frame xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" name="EndScreen">
+        <State name="Victory" booleanValue="true" />
+        <Button matchParentHeight="true" matchParentWidth="true" backgroundImage="shape_square_sharp_32x32" alpha="0.5" enable="false" />
+        <Frame height="500" width="500" bind:backgroundImage="(state.Victory and 'fantasy_icon_victory1' or 'fantasy_icon_defeat1')" />
+        <Button id="endButton" verticalOffsetInParent="-175" backgroundImage="btn_blue" width="225" height="75">
+            <Text id="start text" verticalOffsetInParent="3" text="Level Select" fontSize="30" />
+        </Button>
+    </Frame>
+    <Frame xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" matchParentHeight="true" matchParentWidth="true" name="GameUI">
+        <State name="Morale" numberValue="5" />
+        <State name="Battling" booleanValue="false" />
+        <State name="abilityImage" stringValue="icon_spell_judgement" />
+        <Frame bind:active="state.Battling==false">
+            <Button verticalOffsetInParent="375" height="620" matchParentWidth="true" backgroundImage="shape_square_sharp_32x32" alpha="0" enable="false" />
+            <Button verticalOffsetInParent="-565" height="225" matchParentWidth="true" backgroundImage="shape_square_sharp_32x32" alpha="0" enable="false" />
+            <Button horizontalOffsetInParent="320" width="130" matchParentHeight="true" backgroundImage="shape_square_sharp_32x32" alpha="0" enable="false" />
+            <Button horizontalOffsetInParent="-320" width="130" matchParentHeight="true" backgroundImage="shape_square_sharp_32x32" alpha="0" enable="false" />
+            <Frame verticalOffsetInParent="-195" height="530" width="525" backgroundImage="wilddefender_icon_frame_01_glowing" backgroundImageColor="r: 0.008, g: 0.961, b: 0.992, a: 1" />
+        </Frame>
+        <Button verticalOffsetInParent="625" height="120" matchParentWidth="true" backgroundImage="shape_square_sharp_32x32" alpha="0" enable="false" />
+        <Button verticalOffsetInParent="-583" height="180" matchParentWidth="true" backgroundImage="shape_square_sharp_32x32" alpha="0" enable="false" />
+        <Button horizontalOffsetInParent="352" width="100" matchParentHeight="true" backgroundImage="shape_square_sharp_32x32" alpha="0" enable="false" rotation3d="x: 0, y: 0, z: 2" />
+        <Button horizontalOffsetInParent="-352" width="100" matchParentHeight="true" backgroundImage="shape_square_sharp_32x32" alpha="0" enable="false" rotation3d="x: 0, y: 0, z: -2" />
+        <Frame bottomAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="125" horizontalOffsetInParent="-25" backgroundImage="bar_exp00_empty" width="250" height="35">
+            <Frame backgroundImage="bar_exp00_fill" bind:backgroundImageFillAmount="state.Morale/100" backgroundImageFillHorizontal="true" matchParentHeight="true" matchParentWidth="true" />
+            <Text id="Morale" bind:text="(state.Morale) .. '/100'" />
+        </Frame>
+        <HStack spacing="10" padding="10" backgroundImage="frame01_blue" rightAlignmentInParent="true" horizontalOffsetInParent="-20" verticalOffsetInParent="5" bottomAlignmentInParent="true">
+            <Button id="swordsmanButton" height="100" width="100" backgroundImage="icon_enhance_centaurarcher_warhall" bind:enable="(state.Battling==false) and (state.Morale&gt;=5)">
+                <Text id="cost" text="20" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
+            </Button>
+            <Button id="archerButton" height="100" width="100" backgroundImage="icon_enhance_arrowtower_extraarcher" bind:enable="(state.Battling==false) and (state.Morale&gt;=10)">
+                <Text id="cost" text="30" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
+            </Button>
+            <Button id="healerButton" height="100" width="100" backgroundImage="icon_ingame_lighthouse_unit_rank03" bind:enable="(state.Battling==false) and (state.Morale&gt;=15)">
+                <Text id="cost" text="40" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
+            </Button>
+        </HStack>
+        <HStack spacing="10" padding="10" backgroundImage="frame01_blue" leftAlignmentInParent="true" horizontalOffsetInParent="50" verticalOffsetInParent="5" bottomAlignmentInParent="true">
+            <State name="abilityCost" numberValue="5" />
+            <State name="currentMana" numberValue="10" />
+            <Button id="abilityButton" height="100" width="100" bind:backgroundImage="state.abilityImage" bind:enable="(state.Battling==true) and (state.currentMana&gt;=state.abilityCost)">
+                <Text id="Morale" bind:text="(state.abilityCost)" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
+            </Button>
+        </HStack>
+        <Button id="fightButton" verticalOffsetInParent="-425" backgroundImage="btn_blue" width="125" height="75" bind:active="state.Battling==false">
+            <Text id="start text" text="Fight!" />
+        </Button>
+    </Frame>
+    <Frame xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" id="UpgradesAll" width="575" height="950" backgroundImage="frame_slot00" name="Hero Upgrades">
+        <State name="heroIndex" numberValue="1" />
+        <State name="heroImage" stringValue="hero_hercules" />
+        <State name="levelsCompleted" numberValue="0" />
+        <State name="upgradeIndex" numberValue="1" />
+        <State name="heartLvl" numberValue="1" />
+        <State name="manaLvl" numberValue="3" />
+        <State name="attackLvl" numberValue="4" />
+        <State name="abilityLvl" numberValue="5" />
+        <State name="Gold" stringValue="5000" />
+        <State name="Cost" stringValue="384" />
+        <Button id="HerculesButton" topAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="-200" width="100" height="100" backgroundImage="card_hero_hercules" bind:enable="state.heroIndex~=1" />
+        <Button id="TreeButton" topAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="-100" width="100" height="100" backgroundImage="card_hero_ancienttree" bind:enable="(state.heroIndex~=2 and state.levelsCompleted&gt;=1)" />
+        <Button id="AngelButton" topAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="0" width="100" height="100" backgroundImage="card_hero_angelwings" bind:enable="(state.heroIndex~=3  and state.levelsCompleted&gt;=2)" />
+        <Button id="ForseerButton" topAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="100" width="100" height="100" backgroundImage="card_hero_foreseer" bind:enable="(state.heroIndex~=4  and state.levelsCompleted&gt;=3)" />
+        <Button id="LavaButton" topAlignmentInParent="true" verticalOffsetInParent="-15" horizontalOffsetInParent="200" width="100" height="100" backgroundImage="icon_ingame_towerslot_lavaooze" bind:enable="(state.heroIndex~=5  and state.levelsCompleted&gt;=4)" />
+        <Frame id="upgradesBackground" bottomAlignmentInParent="true" verticalOffsetInParent="30" width="475" height="800" backgroundImage="frame_slot01">
+            <Frame id="upgradesBackground" topAlignmentInParent="true" verticalOffsetInParent="-25" width="400" height="400" backgroundImage="frame_slot00">
+                <Frame id="heroBackground" height="390" matchParentWidth="true" backgroundImage="tower_lavaooze" />
+                <Frame id="Hero" matchParentHeight="true" matchParentWidth="true" bind:backgroundImage="state.heroImage" />
+                <Frame id="flavorBackground" topAlignmentInParent="true" rightAlignmentInParent="true" width="120" height="55" backgroundImage="frame_slot00">
+                    <Frame id="GoldImage" rightAlignmentInParent="true" horizontalOffsetInParent="-5" verticalOffsetInParent="3" width="40" height="40" backgroundImage="golden_pass_overview" />
+                    <Text id="Money" bind:text="(state.Gold)" rightAlignmentInParent="true" horizontalOffsetInParent="-35" width="75" verticalOffsetInParent="3" fontSize="25" />
+                </Frame>
+            </Frame>
+            <Frame id="flavorBackground" verticalOffsetInParent="-25" width="420" height="125" backgroundImage="frame_slot00">
+                <Button id="upgradeButton" rightAlignmentInParent="true" horizontalOffsetInParent="-15" verticalOffsetInParent="5" width="80" height="80" backgroundImage="icon_ingame_towerslot_upgrade_green" />
+                <Frame id="GoldImage" bottomAlignmentInParent="true" verticalOffsetInParent="12" horizontalOffsetInParent="20" width="50" height="50" backgroundImage="golden_pass_overview" />
+                <Text id="Money" bind:text="'Cost: ' .. (state.Cost)" bottomAlignmentInParent="true" verticalOffsetInParent="23" horizontalOffsetInParent="-57" width="150" fontSize="25" />
+                <Text id="upgradeFlavorText" bind:text="'Upgrades the '..(state.heroImage)" width="320" verticalOffsetInParent="20" horizontalOffsetInParent="-45" fontSize="25" />
+            </Frame>
+            <Frame id="heartFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="-165" verticalOffsetInParent="25" width="100" height="100">
+                <Button id="heartButton" matchParentHeight="true" matchParentWidth="true" backgroundImage="frame_slot00">
+                    <Frame id="heartImage" width="75" height="75" verticalOffsetInParent="5" backgroundImage="icon_att_health" />
+                    <Frame width="75" height="75" verticalOffsetInParent="5" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.upgradeIndex==1" />
+                </Button>
+                <Frame id="bar1" width="75" height="15" verticalOffsetInParent="65" bind:backgroundImage="(state.heartLvl&gt;=2 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar3" width="75" height="15" verticalOffsetInParent="85" bind:backgroundImage="(state.heartLvl&gt;=3 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar4" width="75" height="15" verticalOffsetInParent="105" bind:backgroundImage="(state.heartLvl&gt;=4 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar5" width="75" height="15" verticalOffsetInParent="125" bind:backgroundImage="(state.heartLvl&gt;=5 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar6" width="75" height="15" verticalOffsetInParent="145" bind:backgroundImage="(state.heartLvl&gt;=6 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar7" width="75" height="15" verticalOffsetInParent="165" bind:backgroundImage="(state.heartLvl&gt;=7 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar8" width="75" height="15" verticalOffsetInParent="185" bind:backgroundImage="(state.heartLvl&gt;=8 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar9" width="75" height="15" verticalOffsetInParent="205" bind:backgroundImage="(state.heartLvl&gt;=9 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar10" width="75" height="15" verticalOffsetInParent="225" bind:backgroundImage="(state.heartLvl&gt;=10 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+            </Frame>
+            <Frame id="manaFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="-55" verticalOffsetInParent="25" width="100" height="100">
+                <Button id="manaButton" matchParentHeight="true" matchParentWidth="true" backgroundImage="frame_slot00">
+                    <Frame id="manaImage" width="75" height="75" verticalOffsetInParent="0" backgroundImage="talent_mana_regen" />
+                    <Frame width="75" height="75" verticalOffsetInParent="5" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.upgradeIndex==2" />
+                </Button>
+                <Frame id="bar1" width="75" height="15" verticalOffsetInParent="65" bind:backgroundImage="(state.manaLvl&gt;=2 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar3" width="75" height="15" verticalOffsetInParent="85" bind:backgroundImage="(state.manaLvl&gt;=3 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar4" width="75" height="15" verticalOffsetInParent="105" bind:backgroundImage="(state.manaLvl&gt;=4 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar5" width="75" height="15" verticalOffsetInParent="125" bind:backgroundImage="(state.manaLvl&gt;=5 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar6" width="75" height="15" verticalOffsetInParent="145" bind:backgroundImage="(state.manaLvl&gt;=6 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar7" width="75" height="15" verticalOffsetInParent="165" bind:backgroundImage="(state.manaLvl&gt;=7 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar8" width="75" height="15" verticalOffsetInParent="185" bind:backgroundImage="(state.manaLvl&gt;=8 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar9" width="75" height="15" verticalOffsetInParent="205" bind:backgroundImage="(state.manaLvl&gt;=9 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar10" width="75" height="15" verticalOffsetInParent="225" bind:backgroundImage="(state.manaLvl&gt;=10 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+            </Frame>
+            <Frame id="swordFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="55" verticalOffsetInParent="25" width="100" height="100">
+                <Button id="swordButton" matchParentHeight="true" matchParentWidth="true" backgroundImage="frame_slot00">
+                    <Frame id="swordImage" width="75" height="75" verticalOffsetInParent="3" backgroundImage="icon_sword" />
+                    <Frame width="75" height="75" verticalOffsetInParent="5" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.upgradeIndex==3" />
+                </Button>
+                <Frame id="bar1" width="75" height="15" verticalOffsetInParent="65" bind:backgroundImage="(state.attackLvl&gt;=2 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar3" width="75" height="15" verticalOffsetInParent="85" bind:backgroundImage="(state.attackLvl&gt;=3 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar4" width="75" height="15" verticalOffsetInParent="105" bind:backgroundImage="(state.attackLvl&gt;=4 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar5" width="75" height="15" verticalOffsetInParent="125" bind:backgroundImage="(state.attackLvl&gt;=5 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar6" width="75" height="15" verticalOffsetInParent="145" bind:backgroundImage="(state.attackLvl&gt;=6 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar7" width="75" height="15" verticalOffsetInParent="165" bind:backgroundImage="(state.attackLvl&gt;=7 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar8" width="75" height="15" verticalOffsetInParent="185" bind:backgroundImage="(state.attackLvl&gt;=8 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar9" width="75" height="15" verticalOffsetInParent="205" bind:backgroundImage="(state.attackLvl&gt;=9 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar10" width="75" height="15" verticalOffsetInParent="225" bind:backgroundImage="(state.attackLvl&gt;=10 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+            </Frame>
+            <Frame id="abilitytFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="165" verticalOffsetInParent="25" width="100" height="100">
+                <Button id="abilitytButton" matchParentHeight="true" matchParentWidth="true" backgroundImage="frame_slot00">
+                    <Frame id="abilityImage" width="75" height="75" verticalOffsetInParent="3" backgroundImage="icon_energy" />
+                    <Frame width="75" height="75" verticalOffsetInParent="5" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.upgradeIndex==4" />
+                </Button>
+                <Frame id="bar1" width="75" height="15" verticalOffsetInParent="65" bind:backgroundImage="(state.abilityLvl&gt;=2 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar3" width="75" height="15" verticalOffsetInParent="85" bind:backgroundImage="(state.abilityLvl&gt;=3 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar4" width="75" height="15" verticalOffsetInParent="105" bind:backgroundImage="(state.abilityLvl&gt;=4 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar5" width="75" height="15" verticalOffsetInParent="125" bind:backgroundImage="(state.abilityLvl&gt;=5 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar6" width="75" height="15" verticalOffsetInParent="145" bind:backgroundImage="(state.abilityLvl&gt;=6 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar7" width="75" height="15" verticalOffsetInParent="165" bind:backgroundImage="(state.abilityLvl&gt;=7 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar8" width="75" height="15" verticalOffsetInParent="185" bind:backgroundImage="(state.abilityLvl&gt;=8 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar9" width="75" height="15" verticalOffsetInParent="205" bind:backgroundImage="(state.abilityLvl&gt;=9 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar10" width="75" height="15" verticalOffsetInParent="225" bind:backgroundImage="(state.abilityLvl&gt;=10 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+            </Frame>
+        </Frame>
+        <Button id="closeButton" backgroundImage="btn_grey" bottomAlignmentInParent="true" rightAlignmentInParent="true" horizontalOffsetInParent="-10" verticalOffsetInParent="-25" width="150" height="75">
+            <Text id="upgradeFlavorText" text="Close" fontSize="30" verticalOffsetInParent="3" />
+        </Button>
+    </Frame>
+    <Frame xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" matchParentHeight="true" matchParentWidth="true" id="btn_unit_wildsky_barracks_troop_rank01" backgroundImage="wilddefender_background_plate02" name="MapMenu">
+        <State name="selectedLevel" numberValue="1" />
+        <State name="unlockedLevel" numberValue="1" />
+        <State name="heroImage" stringValue="icon_ingame_hero_hercules" />
+        <Frame id="MapBackground" topAlignmentInParent="true" width="650" height="1150" verticalOffsetInParent="-25" backgroundImage="icon_trophyroom_background03">
+            <Frame id="Water" matchParentWidth="true" verticalOffsetInParent="-325" height="750" backgroundImage="icon_teslatower_skill_conductivefield" rotation3d="x: 0, y: 0, z: -57" backgroundImageColor="r: 0.333, g: 0.235, b: 0.027, a: 0.500" />
+            <Frame id="Water2" matchParentWidth="true" horizontalOffsetInParent="150" verticalOffsetInParent="146" height="750" backgroundImage="icon_frozenvoyage_skill_drakarbreath" rotation3d="x: 0, y: 180, z: 150" backgroundImageColor="r: 0.333, g: 0.235, b: 0.027, a: 0.5" />
+            <Frame id="Water" width="400" horizontalOffsetInParent="-150" verticalOffsetInParent="390" height="400" backgroundImage="icon_ancienttree_skill_butterflysymbiosis" rotation3d="x: 0, y: 0, z: -90" backgroundImageColor="r: 0.333, g: 0.235, b: 0.027, a: 0.5" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="120" verticalOffsetInParent="-430" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 50" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="125" verticalOffsetInParent="-235" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 130" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="36" verticalOffsetInParent="-195" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 0" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="-115" verticalOffsetInParent="-70" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: -60" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="-120" verticalOffsetInParent="29" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 65" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="-5" verticalOffsetInParent="245" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 55" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="65" verticalOffsetInParent="245" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: -55" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="135" verticalOffsetInParent="222" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 35" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="215" verticalOffsetInParent="292" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 35" />
+            <Frame id="Path" width="100" height="10" horizontalOffsetInParent="255" verticalOffsetInParent="380" backgroundImage="grid_06" backgroundImageColor="r: 0.208, g: 0.161, b: 0.067, a: 1" rotation3d="x: 0, y: 0, z: 90" />
+            <Frame id="Frame" topAlignmentInParent="true" width="650" height="1150" backgroundImage="frame_border_gold_small" />
+            <Button id="level1Button" horizontalOffsetInParent="35" verticalOffsetInParent="-500" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=1">
+                <Frame width="90" height="125" verticalOffsetInParent="15" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.selectedLevel==1" />
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+            </Button>
+            <Button id="level2Button" horizontalOffsetInParent="195" verticalOffsetInParent="-350" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=2">
+                <Frame width="90" height="125" verticalOffsetInParent="15" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.selectedLevel==2" />
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+            </Button>
+            <Button id="level3Button" horizontalOffsetInParent="-65" verticalOffsetInParent="-200" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=3">
+                <Frame width="90" height="125" verticalOffsetInParent="15" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.selectedLevel==3" />
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+            </Button>
+            <Button id="level4Button" horizontalOffsetInParent="-75" verticalOffsetInParent="125" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=4">
+                <Frame width="90" height="125" verticalOffsetInParent="15" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.selectedLevel==4" />
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+            </Button>
+            <Button id="level5Button" horizontalOffsetInParent="260" verticalOffsetInParent="480" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=5">
+                <Frame width="90" height="125" verticalOffsetInParent="15" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.selectedLevel==5" />
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+                <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" backgroundImage="icon_perfect_slot" />
+            </Button>
+        </Frame>
+        <Button id="startLevel" backgroundImage="btn_grey" width="300" height="150" bottomAlignmentInParent="true" verticalOffsetInParent="25">
+            <Text id="start text" text="Start Level" fontSize="40" />
+        </Button>
+        <Button id="HeroUpgrades" bottomAlignmentInParent="true" rightAlignmentInParent="true" width="125" height="125" verticalOffsetInParent="25" horizontalOffsetInParent="-50" bind:backgroundImage="state.heroImage" />
+        <Button id="TroopUpgrades" bottomAlignmentInParent="true" leftAlignmentInParent="true" width="125" height="125" verticalOffsetInParent="25" horizontalOffsetInParent="50" backgroundImage="icon_troop_count" />
+    </Frame>
+    <Frame matchParentHeight="true" matchParentWidth="true" id="btn_unit_wildsky_barracks_troop_rank01" backgroundImage="wilddefender_background_plate02" name="StartMenu">
+        <Button id="btn_grey" backgroundImage="btn_grey" width="200" height="100" bottomAlignmentInParent="true" verticalOffsetInParent="20">
+            <Text id="start text" text="Start Game" />
+        </Button>
+    </Frame>
+    <Frame xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" id="UpgradesAll" width="575" height="850" backgroundImage="frame_slot00" name="Troop Upgrades">
+        <State name="troopIndex" numberValue="1" />
+        <State name="troopImage" stringValue="btn_unit_wildsky_barracks_troop_rank01" />
+        <State name="disableButton" booleanValue="false" />
+        <State name="swordsmanLvl" numberValue="1" />
+        <State name="archerLvl" numberValue="1" />
+        <State name="healerLvl" numberValue="1" />
+        <State name="Gold" stringValue="5000" />
+        <State name="Cost" stringValue="24" />
+        <Frame id="upgradesBackground" bottomAlignmentInParent="true" verticalOffsetInParent="30" width="475" height="800" backgroundImage="frame_slot01">
+            <Frame id="upgradesBackground" topAlignmentInParent="true" verticalOffsetInParent="-75" width="400" height="400" backgroundImage="frame_slot00">
+                <Frame id="heroBackground" height="390" matchParentWidth="true" backgroundImage="item_gold" />
+                <Frame id="Troop" height="400" width="400" verticalOffsetInParent="-25" bind:backgroundImage="state.troopImage" />
+                <Frame topAlignmentInParent="true" rightAlignmentInParent="true" width="120" height="55" backgroundImage="frame_slot00">
+                    <Frame id="GoldImage" rightAlignmentInParent="true" horizontalOffsetInParent="-5" verticalOffsetInParent="3" width="40" height="40" backgroundImage="golden_pass_overview" />
+                    <Text id="Money" bind:text="(state.Gold)" rightAlignmentInParent="true" horizontalOffsetInParent="-35" width="75" verticalOffsetInParent="3" fontSize="25" />
+                </Frame>
+            </Frame>
+            <Frame topAlignmentInParent="true" width="225" height="75" verticalOffsetInParent="-15" backgroundImage="frame_slot00">
+                <Text id="Money" text="Swordsman" verticalOffsetInParent="2" fontSize="25" />
+            </Frame>
+            <Frame id="flavorBackground" verticalOffsetInParent="-75" width="420" height="125" backgroundImage="frame_slot00">
+                <Button id="upgradeButton" bind:enable="state.disableButton==false" rightAlignmentInParent="true" horizontalOffsetInParent="-15" verticalOffsetInParent="5" width="80" height="80" backgroundImage="icon_ingame_towerslot_upgrade_green" />
+                <Frame id="GoldImage" bottomAlignmentInParent="true" verticalOffsetInParent="12" horizontalOffsetInParent="20" width="50" height="50" backgroundImage="golden_pass_overview" />
+                <Text id="Money" bind:text="'Cost: ' .. (state.Cost)" bottomAlignmentInParent="true" verticalOffsetInParent="23" horizontalOffsetInParent="-57" width="150" fontSize="25" />
+                <Text id="upgradeFlavorText" bind:active="state.troopIndex==1" bind:text="'Upgrades the swordsman to rank '..(state.swordsmanLvl +1)" width="320" verticalOffsetInParent="20" horizontalOffsetInParent="-45" fontSize="25" />
+                <Text id="upgradeFlavorText" bind:active="state.troopIndex==2" bind:text="'Upgrades the archer to rank '..(state.archerLvl +1)" width="320" verticalOffsetInParent="20" horizontalOffsetInParent="-45" fontSize="25" />
+                <Text id="upgradeFlavorText" bind:active="state.troopIndex==3" bind:text="'Upgrades the healer to rank '..(state.healerLvl +1)" width="320" verticalOffsetInParent="20" horizontalOffsetInParent="-45" fontSize="25" />
+            </Frame>
+            <Frame id="swordsmanFrame" bottomAlignmentInParent="true" horizontalOffsetInParent="-135" verticalOffsetInParent="25" width="125" height="125">
+                <Button id="swordsmanButton" matchParentHeight="true" matchParentWidth="true" backgroundImage="icon_enhance_centaurarcher_warhall" bind:enable="state.troopIndex~=1" />
+                <Frame id="bar2" width="100" height="30" verticalOffsetInParent="85" bind:backgroundImage="(state.swordsmanLvl&gt;=2 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar3" width="100" height="30" verticalOffsetInParent="120" bind:backgroundImage="(state.swordsmanLvl&gt;=3 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar4" width="100" height="30" verticalOffsetInParent="155" bind:backgroundImage="(state.swordsmanLvl&gt;=4 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+            </Frame>
+            <Frame id="archerFrame" bottomAlignmentInParent="true" verticalOffsetInParent="25" width="125" height="125">
+                <Button id="archerButton" matchParentHeight="true" matchParentWidth="true" backgroundImage="icon_enhance_arrowtower_extraarcher" bind:enable="state.troopIndex~=2" />
+                <Frame id="bar2" width="100" height="30" verticalOffsetInParent="85" bind:backgroundImage="(state.archerLvl&gt;=2 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar3" width="100" height="30" verticalOffsetInParent="120" bind:backgroundImage="(state.archerLvl&gt;=3 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar4" width="100" height="30" verticalOffsetInParent="155" bind:backgroundImage="(state.archerLvl&gt;=4 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+            </Frame>
+            <Frame id="healerframe" bottomAlignmentInParent="true" horizontalOffsetInParent="135" verticalOffsetInParent="25" width="125" height="125">
+                <Button id="healerButton" matchParentHeight="true" matchParentWidth="true" backgroundImage="icon_ingame_lighthouse_unit_rank03" bind:enable="state.troopIndex~=3" />
+                <Frame id="bar2" width="100" height="30" verticalOffsetInParent="85" bind:backgroundImage="(state.healerLvl&gt;=2 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar3" width="100" height="30" verticalOffsetInParent="120" bind:backgroundImage="(state.healerLvl&gt;=3 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+                <Frame id="bar4" width="100" height="30" verticalOffsetInParent="155" bind:backgroundImage="(state.healerLvl&gt;=4 and 'bar_exp00_fill' or 'bar_exp00_empty')" />
+            </Frame>
+        </Frame>
+        <Button id="closeButton" backgroundImage="btn_grey" bottomAlignmentInParent="true" leftAlignmentInParent="true" horizontalOffsetInParent="-10" verticalOffsetInParent="-25" width="150" height="75">
+            <Text id="upgradeFlavorText" text="Close" fontSize="30" verticalOffsetInParent="3" />
+        </Button>
+    </Frame>
+    <VStack xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" name="test">
+        <!-- Declare initial state values. -->
+        <State name="red" numberValue="3" />
+        <!-- Show different background images depending on the state value and flip state value when clicked. -->
+        <Button bind:backgroundImage="'btn_' .. (state.red and 'red' or 'blue')" bind:onClick="state.red = not state.red">
+            <Text text="switch color" />
+        </Button>
+        <Text bind:text="state.red and 'red' or 'blue'" />
+    </VStack>
+</UI>

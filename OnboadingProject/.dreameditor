@@ -6,6 +6,6 @@
         "entryMap": "Maps/EntryMap"
     },
     "display": {
-        "orientation": 0
+        "orientation": 1
     }
 }

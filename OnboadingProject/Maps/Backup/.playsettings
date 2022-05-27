@@ -1,0 +1,9 @@
+{
+    "play": {
+        "resolution": {
+            "width": 720,
+            "height": 1280
+        },
+        "levelName": "Level1"
+    }
+}
