@@ -4,7 +4,11 @@
             "effect": "Hero Healer MassHeal AOE",
             "stats": {
                 "prepTime": 1,
-                "finishTime": 1
+                "finishTime": 1,
+                "maxCharge": 1
+            },
+            "cost": {
+                "mana": 30
             }
         },
         "Hero Hercules Uppercut": {
@@ -13,7 +17,8 @@
             "stats": {
                 "prepTime": 0.25,
                 "finishTime": 1,
-                "period": 1
+                "period": 1,
+                "maxCharge": 1
             },
             "cost": {
                 "mana": 15
@@ -29,6 +34,9 @@
                 "prepTime": 1,
                 "finishTime": 1,
                 "range": 0
+            },
+            "cost": {
+                "mana": 75
             }
         },
         "Hero Tank GroundSmash": {
@@ -36,10 +44,11 @@
             "stats": {
                 "prepTime": 0.75,
                 "finishTime": 1,
-                "period": 1
+                "period": 0,
+                "maxCharge": 1
             },
             "cost": {
-                "mana": 60
+                "mana": 30
             },
             "targetFilter": {
                 "player": 0,
@@ -53,6 +62,9 @@
                 "prepTime": 0.5,
                 "finishTime": 0.5,
                 "range": 15
+            },
+            "cost": {
+                "mana": 60
             }
         }
     }

@@ -27,13 +27,13 @@
             <Text id="Morale" bind:text="(state.Morale) .. '/100'" />
         </Frame>
         <HStack spacing="10" padding="10" backgroundImage="frame01_blue" rightAlignmentInParent="true" horizontalOffsetInParent="-20" verticalOffsetInParent="5" bottomAlignmentInParent="true">
-            <Button id="swordsmanButton" height="100" width="100" backgroundImage="icon_enhance_centaurarcher_warhall" bind:enable="(state.Battling==false) and (state.Morale&gt;=5)">
+            <Button id="swordsmanButton" height="100" width="100" backgroundImage="icon_enhance_centaurarcher_warhall" bind:enable="(state.Battling==false) and (state.Morale&gt;=20)">
                 <Text id="cost" text="20" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
             </Button>
-            <Button id="archerButton" height="100" width="100" backgroundImage="icon_enhance_arrowtower_extraarcher" bind:enable="(state.Battling==false) and (state.Morale&gt;=10)">
+            <Button id="archerButton" height="100" width="100" backgroundImage="icon_enhance_arrowtower_extraarcher" bind:enable="(state.Battling==false) and (state.Morale&gt;=30)">
                 <Text id="cost" text="30" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
             </Button>
-            <Button id="healerButton" height="100" width="100" backgroundImage="icon_ingame_lighthouse_unit_rank03" bind:enable="(state.Battling==false) and (state.Morale&gt;=15)">
+            <Button id="healerButton" height="100" width="100" backgroundImage="icon_ingame_lighthouse_unit_rank03" bind:enable="(state.Battling==false) and (state.Morale&gt;=40)">
                 <Text id="cost" text="40" bottomAlignmentInParent="true" rightAlignmentInParent="true" fontSize="35" />
             </Button>
         </HStack>

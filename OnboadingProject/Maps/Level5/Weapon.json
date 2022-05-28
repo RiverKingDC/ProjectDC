@@ -6,8 +6,8 @@
                 "preSwing": 0.5,
                 "backSwing": 0.5,
                 "period": 1,
-                "range": 0.25,
-                "scanRange": 3
+                "range": 0.5,
+                "scanRange": 26
             },
             "distanceExtendMode": 1,
             "targetFilter": {
@@ -19,7 +19,7 @@
             "parent": "_StandardMeleeWeapon",
             "effectName": "Enemy Skeleton Melee Damage",
             "stats": {
-                "scanRange": 16
+                "scanRange": 26
             }
         },
         "Hero Angel StandardRange": {
@@ -30,8 +30,10 @@
             "parent": "_StandardMeleeWeapon",
             "effectName": "Hero Hercules StandardDamage",
             "stats": {
-                "preSwing": 0.25,
-                "backSwing": 0.25
+                "preSwing": 0.15,
+                "backSwing": 0.15,
+                "range": 0.5,
+                "scanRange": 0.5
             }
         },
         "Hero Lava StardardMelee": {
@@ -39,14 +41,18 @@
             "effectName": "Hero Lava StandardDamage",
             "stats": {
                 "preSwing": 1,
-                "backSwing": 0.5
+                "backSwing": 0.5,
+                "range": 0.5,
+                "scanRange": 0.5
             }
         },
         "Hero Tree StardardMelee": {
             "parent": "_StandardMeleeWeapon",
             "effectName": "Hero Tree StandardDamage",
             "stats": {
-                "preSwing": 1.5
+                "preSwing": 1.5,
+                "range": 0.75,
+                "scanRange": 1
             }
         },
         "Hero Wizard StandardRange": {
@@ -54,6 +60,13 @@
             "effectName": "Hero Wizard StandardLaunch",
             "stats": {
                 "preSwing": 1
+            }
+        },
+        "Player Troop Archer RangedUnit Weapon": {
+            "parent": "_StandardRangedWeapon",
+            "effectName": "Standard RangedUnit Weapon Launch",
+            "stats": {
+                "scanRange": 26
             }
         },
         "Player Troop Healer Weapon": {
@@ -65,7 +78,7 @@
                 "backSwing": 2,
                 "period": 1,
                 "range": 4,
-                "scanRange": 5,
+                "scanRange": 26,
                 "arc": 360
             },
             "distanceExtendMode": 1,
@@ -97,12 +110,19 @@
                 "backSwing": 0.5,
                 "period": 1,
                 "range": 0.25,
-                "scanRange": 3
+                "scanRange": 26
             },
             "distanceExtendMode": 1,
             "targetFilter": {
                 "ground": 1,
                 "invulerable": 2
+            }
+        },
+        "Skeleton RangedUnit Weapon": {
+            "parent": "_StandardRangedWeapon",
+            "effectName": "Standard RangedUnit Weapon Launch",
+            "stats": {
+                "scanRange": 26
             }
         }
     }

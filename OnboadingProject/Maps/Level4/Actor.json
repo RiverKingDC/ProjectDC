@@ -130,6 +130,76 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Enemy Boss MountedSkeleton Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Enemy Boss MountedSkeleton Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Enemy Boss MountedSkeleton Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Enemy Boss MountedSkeleton Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "skeleton_knight_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
                     }
                 ]
             }
@@ -209,6 +279,48 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Enemy Skeleton 1 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Enemy Skeleton 1 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "skeleton_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
                     }
                 ]
             }
@@ -258,6 +370,76 @@
                                 "playAnimation": {
                                     "clipId": 1
                                 }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Enemy Skeleton Archer Death SFX"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Skeleton RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Skeleton RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Enemy Skeleton Archer Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "skeleton_archer_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
                             }
                         ]
                     }
@@ -2259,6 +2441,46 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Archer RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Archer RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Archer Death SFX"
+                                }
+                            }
+                        ]
                     }
                 ]
             }
@@ -2308,6 +2530,76 @@
                                 "stopAnimation": {
                                     "clipId": 0
                                 }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Archer RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Archer RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Archer 2 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 2 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "reinforce_troop_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
                             }
                         ]
                     }
@@ -2361,6 +2653,76 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Archer RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Archer RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Archer 3 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 3 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "reinforce_troop_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
                     }
                 ]
             }
@@ -2412,6 +2774,106 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Archer RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Archer RangedUnit Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Archer 4 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer 4 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "reinforce_troop_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Archer Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "reinforce_troop_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
                     }
                 ]
             }
@@ -2460,6 +2922,18 @@
                             {
                                 "playAnimation": {
                                     "clipId": 1
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Healer Death SFX"
                                 }
                             }
                         ]
@@ -2514,6 +2988,48 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Healer 2 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 2 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "troop_lighthouse_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
                     }
                 ]
             }
@@ -2563,6 +3079,48 @@
                                 "playAnimation": {
                                     "clipId": 1
                                 }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Healer 3 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 3 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "troop_lighthouse_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
                             }
                         ]
                     }
@@ -2616,6 +3174,48 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Healer 4 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Healer 4 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "troop_lighthouse_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
                     }
                 ]
             }
@@ -2625,6 +3225,36 @@
                 "effect": "Player Troop Healer Heal Launch",
                 "launchModel": "Player Troop Healer Launch SFX",
                 "impactModel": "Player Troop Healer Impact SFX"
+            }
+        },
+        "Player Troop Healer Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "troop_lighthouse_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "Player Troop Healer Impact SFX": {
@@ -2767,6 +3397,46 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Swordsman Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Swordsman Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Swordsman Death SFX"
+                                }
+                            }
+                        ]
                     }
                 ]
             }
@@ -2816,6 +3486,76 @@
                                 "stopAnimation": {
                                     "clipId": 0
                                 }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Swordsman Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Swordsman Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Swordsman 2 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 2 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "drow_mage_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
                             }
                         ]
                     }
@@ -2869,6 +3609,76 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Swordsman Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Swordsman Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Swordsman 3 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 3 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "drow_mage_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
                     }
                 ]
             }
@@ -2920,6 +3730,76 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStart": {
+                                "weapon": "Player Troop Swordsman Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitWeaponStop": {
+                                "weapon": "Player Troop Swordsman Weapon"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "stopAnimation": {
+                                    "clipId": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "unitDeath": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Player Troop Swordsman 4 Death SFX"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "Player Troop Swordsman 4 Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "drow_mage_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
                     }
                 ]
             }
@@ -2928,6 +3808,36 @@
             "actionActor": {
                 "effect": "Player Troop Swordsman Damage",
                 "launchModel": "Player Troop Swordsman SFX"
+            }
+        },
+        "Player Troop Swordsman Death SFX": {
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "drow_mage_die"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "animationFinish": {}
+                        },
+                        "actions": [
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "Player Troop Swordsman SFX": {

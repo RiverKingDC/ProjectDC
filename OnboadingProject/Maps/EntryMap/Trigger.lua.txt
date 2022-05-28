@@ -178,12 +178,7 @@ DCEI.SetOnClickCallback(
             
             SaveData()
             DCEI.PlayLevel("Maps/Level"..selectedMap, "Level"..selectedMap, nil, nil)
-            
-            --gameState.Battling = false
-            --DCEI.SetFrameActive(upgrade_menu, false)
-            --DCEI.SetFrameActive(map_menu, false)
-            --DCEI.SetFrameActive(gameUI, true)
-            --ConvertSpawnPoints()
+
         end
     )
     DCEI.SetOnClickCallback(

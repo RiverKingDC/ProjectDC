@@ -4,11 +4,11 @@
             "width": 720,
             "height": 1280
         },
-        "levelName": "Level1",
+        "levelName": "EntryMap",
         "mapSaveData": [
             {
                 "key": "",
-                "save": "{\"heroIndex\":1,\"unlockedLevel\":1,\"currentLvl\":1,\"upgrade1h\":1,\"upgrade1m\":1,\"upgrade1s\":1,\"upgrade1a\":1,\"upgrade2h\":1,\"upgrade2m\":1,\"upgrade2s\":1,\"upgrade2a\":1,\"upgrade3h\":1,\"upgrade3m\":1,\"upgrade3s\":1,\"upgrade3a\":1,\"upgrade4h\":1,\"upgrade4m\":1,\"upgrade4s\":1,\"upgrade4a\":1,\"upgrade5h\":1,\"upgrade5m\":1,\"upgrade5s\":1,\"upgrade5a\":1,\"healthlvl\":1,\"manalvl\":1,\"attacklvl\":1,\"abilitylvl\":1,\"swordsmanLvl\":1,\"archerLvl\":1,\"healerLvl\":1,\"Gold\":0,\"Level1Score\":0}"
+                "save": "{\n    \"heroIndex\": 1,\n    \"unlockedLevel\": 1,\n    \"currentLvl\": 1,\n    \"upgrade1h\": 1,\n    \"upgrade1m\": 1,\n    \"upgrade1s\": 1,\n    \"upgrade1a\": 1,\n    \"upgrade2h\": 1,\n    \"upgrade2m\": 1,\n    \"upgrade2s\": 1,\n    \"upgrade2a\": 1,\n    \"upgrade3h\": 1,\n    \"upgrade3m\": 1,\n    \"upgrade3s\": 1,\n    \"upgrade3a\": 1,\n    \"upgrade4h\": 1,\n    \"upgrade4m\": 1,\n    \"upgrade4s\": 1,\n    \"upgrade4a\": 1,\n    \"upgrade5h\": 1,\n    \"upgrade5m\": 1,\n    \"upgrade5s\": 1,\n    \"upgrade5a\": 1,\n    \"healthlvl\": 1,\n    \"manalvl\": 1,\n    \"attacklvl\": 1,\n    \"abilitylvl\": 1,\n    \"swordsmanLvl\": 1,\n    \"archerLvl\": 1,\n    \"healerLvl\": 1,\n    \"Gold\": 0,\n    \"Level1Score\": 0,\n    \"Level2Score\": 0,\n    \"Level3Score\": 0\n}"
             }
         ]
     }

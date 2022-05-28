@@ -29,7 +29,7 @@
         },
         "Hero Healer MassHeal AOE": {
             "areaSearch": {
-                "debugDraw": true,
+                "debugDraw": false,
                 "areaSearchType": {
                     "circle": {
                         "radius": 15
@@ -82,7 +82,7 @@
         },
         "Hero Lava SuperNova AOE": {
             "areaSearch": {
-                "debugDraw": true,
+                "debugDraw": false,
                 "areaSearchType": {
                     "circle": {
                         "radius": 10
@@ -120,7 +120,7 @@
         },
         "Hero Tree GroundSmash Damage": {
             "damage": {
-                "damageAmount": 10
+                "damageAmount": 3
             }
         },
         "Hero Tree StandardDamage": {
@@ -130,7 +130,7 @@
         },
         "Hero Wizard Skybeam  AOE": {
             "areaSearch": {
-                "debugDraw": true,
+                "debugDraw": false,
                 "areaSearchType": {
                     "circle": {
                         "radius": 1
@@ -149,7 +149,7 @@
         },
         "Hero Wizard Skybeam Damage": {
             "damage": {
-                "damageAmount": 8
+                "damageAmount": 5
             }
         },
         "Hero Wizard StandardDamage": {

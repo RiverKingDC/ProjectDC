@@ -36,6 +36,9 @@
             "Hero Mana Buff",
             "Hero Health Buff"
         ],
+        "usedSoundAssets": [
+            ""
+        ],
         "usedSpriteAssets": [
             "spell_consecrate",
             "spell_walloffire",

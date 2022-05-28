@@ -177,20 +177,20 @@
             </Button>
             <Button id="level2Button" horizontalOffsetInParent="195" verticalOffsetInParent="-350" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=2">
                 <Frame width="90" height="125" verticalOffsetInParent="15" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.selectedLevel==2" />
-                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" bind:backgroundImage="(state.Level2Score&gt;=1 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
-                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level2Score&gt;=2 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" bind:backgroundImage="(state.Level2Score&gt;=2 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level2Score&gt;=1 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
                 <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level2Score&gt;=3 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
             </Button>
             <Button id="level3Button" horizontalOffsetInParent="-65" verticalOffsetInParent="-200" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=3">
                 <Frame width="90" height="125" verticalOffsetInParent="15" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.selectedLevel==3" />
-                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" bind:backgroundImage="(state.Level3Score&gt;=1 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
-                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level3Score&gt;=2 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" bind:backgroundImage="(state.Level3Score&gt;=2 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level3Score&gt;=1 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
                 <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level3Score&gt;=3 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
             </Button>
             <Button id="level4Button" horizontalOffsetInParent="-75" verticalOffsetInParent="125" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=4">
                 <Frame width="90" height="125" verticalOffsetInParent="15" backgroundImage="border_line" backgroundImageColor="r: 0.020, g: 0.922, b: 0.988, a: 1" bind:active="state.selectedLevel==4" />
-                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" bind:backgroundImage="(state.Level4Score&gt;=1 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
-                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level4Score&gt;=2 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
+                <Frame id="Star1" topAlignmentInParent="true" verticalOffsetInParent="30" width="25" height="25" bind:backgroundImage="(state.Level4Score&gt;=2 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
+                <Frame id="Star2" topAlignmentInParent="true" leftAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level4Score&gt;=1 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
                 <Frame id="Star3" topAlignmentInParent="true" rightAlignmentInParent="true" verticalOffsetInParent="27" width="25" height="25" bind:backgroundImage="(state.Level4Score&gt;=3 and 'icon_perfect_gold' or 'icon_perfect_slot')" />
             </Button>
             <Button id="level5Button" horizontalOffsetInParent="260" verticalOffsetInParent="480" width="100" height="100" backgroundImage="talent_castle_defense" backgroundImageColor="r: 0.678, g: 0.620, b: 0.490, a: 0.808" bind:enable="state.unlockedLevel&gt;=5">
